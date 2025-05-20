@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "project5.html",
+    "href": "project5.html",
+    "title": "Proyecto 5",
+    "section": "",
+    "text": "Proyecto 5\nInformación sobre el Proyecto 5. Puedes expandir esta página con subsecciones."
+  },
+  {
+    "objectID": "project3.html",
+    "href": "project3.html",
+    "title": "Proyecto 3",
+    "section": "",
+    "text": "Proyecto 3\nDetalles del Proyecto 3. Puedes añadir imágenes, gráficos o texto adicional."
+  },
+  {
+    "objectID": "project1.html",
+    "href": "project1.html",
+    "title": "Proyecto 1",
+    "section": "",
+    "text": "Proyecto 1\nDescripción del Proyecto 1. Aquí puedes escribir detalles sobre este proyecto.\n\n\n\nTexto alternativo descriptivo"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Acerca de",
+    "section": "",
+    "text": "Acerca de este sitio\nAquí puedes colocar información sobre el propósito del proyecto."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Página Principal",
+    "section": "",
+    "text": "Bienvenido\nEsta es la página principal de mi sitio hecho en Quarto."
+  },
+  {
+    "objectID": "project2.html",
+    "href": "project2.html",
+    "title": "Proyecto 2",
+    "section": "",
+    "text": "Proyecto 2\nDescripción del Proyecto 2. Información relevante sobre este segundo proyecto."
+  }
+]
