@@ -1,0 +1,7 @@
+---
+title: "Acerca de"
+---
+
+# Acerca de este sitio
+
+Aquí puedes colocar información sobre el propósito del proyecto.

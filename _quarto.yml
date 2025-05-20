@@ -1,0 +1,33 @@
+project:
+  type: website
+
+website:
+  title: "Analisis de algoritmos"
+  navbar:
+    background: "#000"
+    foreground: "white"
+    left:
+      - text: "Inicio"
+        href: index.qmd
+      - text: "Sobre Mi"
+        href: about.qmd
+      - text: "Project 1"
+        href: project1.qmd
+      - text: "Project 2"
+        href: project2.qmd
+      - text: "Project 3"
+        href: project3.qmd
+      - text: "Project 4"
+        href: project4.qmd
+      - text: "Project 5"
+        href: project5.qmd
+format:
+  html:
+    theme: default
+    css: styles.css
+
+execute:
+  freeze: auto
+
+publish:
+  provider: gh-pages

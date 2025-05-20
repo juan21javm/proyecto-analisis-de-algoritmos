@@ -1,0 +1,7 @@
+---
+title: "Página Principal"
+---
+
+# Bienvenido
+
+Esta es la página principal de mi sitio hecho en **Quarto**.
