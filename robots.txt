@@ -1,1 +1,1 @@
-Sitemap: https://juan21javm.github.io/proyecto/sitemap.xml
+Sitemap: https://juan21javm.github.io/proyecto-analisis-de-algoritmos/sitemap.xml

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -68,11 +103,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -128,7 +192,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de Contenido</h2>
+   
+  <ul>
+  <li><a href="#a.-reporte-escrito-experimentos-y-análisis" id="toc-a.-reporte-escrito-experimentos-y-análisis" class="nav-link active" data-scroll-target="#a.-reporte-escrito-experimentos-y-análisis">1A. Reporte escrito: Experimentos y análisis</a>
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a>
+  <ul>
+  <li><a href="#bibliotecas-utilizadas" id="toc-bibliotecas-utilizadas" class="nav-link" data-scroll-target="#bibliotecas-utilizadas">2.1 Bibliotecas utilizadas</a></li>
+  <li><a href="#definición-de-funciones-de-crecimiento" id="toc-definición-de-funciones-de-crecimiento" class="nav-link" data-scroll-target="#definición-de-funciones-de-crecimiento">2.2 Definición de funciones de crecimiento</a></li>
+  <li><a href="#función-de-comparación-de-gráficos" id="toc-función-de-comparación-de-gráficos" class="nav-link" data-scroll-target="#función-de-comparación-de-gráficos">2.3 Función de comparación de gráficos</a></li>
+  <li><a href="#comparaciones-entre-órdenes-de-crecimiento" id="toc-comparaciones-entre-órdenes-de-crecimiento" class="nav-link" data-scroll-target="#comparaciones-entre-órdenes-de-crecimiento">2.4 Comparaciones entre órdenes de crecimiento</a></li>
+  <li><a href="#tabla-de-tiempos-de-ejecución-simulados" id="toc-tabla-de-tiempos-de-ejecución-simulados" class="nav-link" data-scroll-target="#tabla-de-tiempos-de-ejecución-simulados">2.5 Tabla de tiempos de ejecución simulados</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a>
+  <ul>
+  <li><a href="#interpretación-de-gráficos" id="toc-interpretación-de-gráficos" class="nav-link" data-scroll-target="#interpretación-de-gráficos">3.1 Interpretación de gráficos</a></li>
+  <li><a href="#interpretación-de-la-tabla" id="toc-interpretación-de-la-tabla" class="nav-link" data-scroll-target="#interpretación-de-la-tabla">3.2 Interpretación de la tabla</a>
+  <ul class="collapse">
+  <li><a href="#tabla-resumen-de-tiempos-simulados" id="toc-tabla-resumen-de-tiempos-simulados" class="nav-link" data-scroll-target="#tabla-resumen-de-tiempos-simulados">3.2.1 Tabla resumen de tiempos simulados</a></li>
+  </ul></li>
+  <li><a href="#implicaciones-de-costos-de-cómputo-necesarios-para-manipular-grandes-volúmenes-de-información" id="toc-implicaciones-de-costos-de-cómputo-necesarios-para-manipular-grandes-volúmenes-de-información" class="nav-link" data-scroll-target="#implicaciones-de-costos-de-cómputo-necesarios-para-manipular-grandes-volúmenes-de-información">3.3 Implicaciones de costos de cómputo necesarios para manipular grandes volúmenes de información</a></li>
+  </ul></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">5. Referencias</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -151,17 +245,293 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="proyecto-1" class="level1">
-<h1>Proyecto 1</h1>
-<p>Descripción del Proyecto 1. Aquí puedes escribir detalles sobre este proyecto.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="public/project1/01.jpg" class="img-fluid figure-img"></p>
-<figcaption>Texto alternativo descriptivo</figcaption>
-</figure>
+<section id="a.-reporte-escrito-experimentos-y-análisis" class="level1">
+<h1>1A. Reporte escrito: Experimentos y análisis</h1>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>En la era digital actual, el big data ha emergido como un recurso valioso para las organizaciones, permitiéndoles extraer, procesar y analizar datos significativos. El big data se caracteriza por sus cuatro V: volumen, velocidad, variedad y veracidad. El volumen se refiere a la gran cantidad de datos generados y almacenados; la velocidad, a la rapidez con la que se generan y procesan; la variedad, a los diferentes tipos de datos (estructurados y no estructurados); y la veracidad, a la calidad y precisión de dichos datos. La capacidad de manejar y analizar estos grandes volúmenes de información de manera eficiente es crucial para aprovechar al máximo el potencial del big data (Müller et al., 2016).</p>
+<p>El análisis de big data permite a las organizaciones identificar patrones, predecir tendencias y optimizar procesos, lo que puede resultar en mejoras significativas en la eficiencia operativa y en la toma de decisiones estratégicas. Sin embargo, la manipulación de grandes volúmenes de datos presenta desafíos importantes en términos de infraestructura, almacenamiento, procesamiento y análisis. Los algoritmos eficientes son fundamentales para enfrentar estos desafíos y garantizar que los sistemas de big data funcionen de manera óptima (Manyika et al., 2011).</p>
+<p>Este reporte se enfoca en comparar diferentes órdenes de crecimiento mediante simulaciones en un entorno de Jupyter. Se analizarán los siguientes casos: <span class="math inline">\(O(1)\)</span> vs <span class="math inline">\(O(\log n)\)</span>, <span class="math inline">\(O(n)\)</span> vs <span class="math inline">\(O(n \log n)\)</span>, <span class="math inline">\(O(n^2)\)</span> vs <span class="math inline">\(O(n^3)\)</span>, <span class="math inline">\(O(a^n)\)</span> vs <span class="math inline">\(O(n!)\)</span> y <span class="math inline">\(O(n!)\)</span> vs <span class="math inline">\(O(n^n)\)</span>. Para cada comparación, se seleccionarán rangos adecuados de <span class="math inline">\(n\)</span> que permitan visualizar claramente las diferencias entre estos órdenes. Se generarán gráficas para cada caso y se discutirán las observaciones correspondientes. Además, se incluirá una tabla con tiempos de ejecución simulados para algoritmos ficticios asociados a los órdenes de crecimiento mencionados, utilizando distintos tamaños de entrada <span class="math inline">\(n\)</span>. Este análisis proporciona una visión clara de cómo los diferentes órdenes de crecimiento afectan el rendimiento y la eficiencia de los algoritmos.</p>
+</section>
+<section id="desarrollo" class="level2">
+<h2 class="anchored" data-anchor-id="desarrollo">2. Desarrollo</h2>
+<section id="bibliotecas-utilizadas" class="level3">
+<h3 class="anchored" data-anchor-id="bibliotecas-utilizadas">2.1 Bibliotecas utilizadas</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="definición-de-funciones-de-crecimiento" class="level3">
+<h3 class="anchored" data-anchor-id="definición-de-funciones-de-crecimiento">2.2 Definición de funciones de crecimiento</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> constant(n): <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logarithmic(n): <span class="cf">return</span> np.log(n)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linear(n): <span class="cf">return</span> n</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linear_logarithmic(n): <span class="cf">return</span> n <span class="op">*</span> np.log(n)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> quadratic(n): <span class="cf">return</span> n<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cubic(n): <span class="cf">return</span> n<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exponential(n, a<span class="op">=</span><span class="dv">2</span>): <span class="cf">return</span> a<span class="op">**</span>n</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n): <span class="cf">return</span> math.factorial(n)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double_exponential(n): <span class="cf">return</span> n<span class="op">**</span>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="función-de-comparación-de-gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="función-de-comparación-de-gráficos">2.3 Función de comparación de gráficos</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_comparison(funcs, labels, title, x_range):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> func, label <span class="kw">in</span> <span class="bu">zip</span>(funcs, labels):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        plt.plot(x_range, [func(x) <span class="op">/</span> <span class="fl">1e9</span> <span class="cf">for</span> x <span class="kw">in</span> x_range], label<span class="op">=</span>label)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'n'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Tiempo (s)'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    plt.xscale(<span class="st">'log'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="comparaciones-entre-órdenes-de-crecimiento" class="level3">
+<h3 class="anchored" data-anchor-id="comparaciones-entre-órdenes-de-crecimiento">2.4 Comparaciones entre órdenes de crecimiento</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x_range_small <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x_range_medium <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">100</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación 1: O(1) vs O(log n)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plot_comparison([constant, logarithmic], [<span class="st">'O(1)'</span>, <span class="st">'O(log n)'</span>], <span class="st">'Figura 1 - Comparación de O(1) con O(log n)'</span>, x_range_small)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación 2: O(n) vs O(n log n)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plot_comparison([linear, linear_logarithmic], [<span class="st">'O(n)'</span>, <span class="st">'O(n log n)'</span>], <span class="st">'Figura 2 - Comparación de O(n) con O(n log n)'</span>, x_range_medium)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación 3: O(n^2) vs O(n^3)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plot_comparison([quadratic, cubic], [<span class="st">'O(n^2)'</span>, <span class="st">'O(n^3)'</span>], <span class="st">'Figura 3 - Comparación de O(n^2) con O(n^3)'</span>, x_range_medium)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación 4: O(2^n) vs O(n!)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plot_comparison([<span class="kw">lambda</span> n: exponential(n, <span class="dv">2</span>), factorial], [<span class="st">'O(2^n)'</span>, <span class="st">'O(n!)'</span>], <span class="st">'Figura 4 - Comparación de O(2^n) con O(n!)'</span>, x_range_small)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación 5: O(n!) vs O(n^n)</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plot_comparison([factorial, double_exponential], [<span class="st">'O(n!)'</span>, <span class="st">'O(n^n)'</span>], <span class="st">'Figura 5 - Comparación de O(n!) con O(n^n)'</span>, x_range_small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tabla-de-tiempos-de-ejecución-simulados" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-de-tiempos-de-ejecución-simulados">2.5 Tabla de tiempos de ejecución simulados</h3>
+<p>Nota: Se creó una tabla con tiempos de ejecución simulados para algoritmos ficticios con los órdenes de crecimiento mencionados.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamaños de entrada</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones de costo</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>cost_functions <span class="op">=</span> {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(1)'</span>: constant,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(log n)'</span>: logarithmic,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(n)'</span>: linear,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(n log n)'</span>: linear_logarithmic,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(n^2)'</span>: quadratic,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(n^3)'</span>: cubic,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(2^n)'</span>: <span class="kw">lambda</span> n: exponential(n, <span class="dv">2</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(n!)'</span>: factorial,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'O(n^n)'</span>: double_exponential</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Elaboración de la tabla</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> n_values:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> {<span class="st">'n'</span>: n}</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> label, func <span class="kw">in</span> cost_functions.items():</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>            row[label] <span class="op">=</span> func(n) <span class="op">/</span> <span class="fl">1e9</span>  <span class="co"># Conversión a segundos</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">OverflowError</span>:</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            row[label] <span class="op">=</span> <span class="st">'Overflow'</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    results.append(row)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'n'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="análisis-de-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-resultados">3. Análisis de Resultados</h2>
+<section id="interpretación-de-gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-de-gráficos">3.1 Interpretación de gráficos</h3>
+<div style="text-align: center;">
+<p><img src="public/project1/02g.jpg" width="160px"></p>
 </div>
+asd
+<div style="text-align: center;">
+<p><img src="02g.jpg" width="160px"></p>
+</div>
+sda
+<div style="text-align: center;">
+<p><img src="03g.jpg" width="160px"></p>
+</div>
+sd
+<div style="text-align: center;">
+<p><img src="04g.jpg" width="160px"></p>
+</div>
+asd
+<div style="text-align: center;">
+<p><img src="05g.jpg" width="160px"></p>
+</div>
+<p>asd</p>
+</section>
+<section id="interpretación-de-la-tabla" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-de-la-tabla">3.2 Interpretación de la tabla</h3>
+<section id="tabla-resumen-de-tiempos-simulados" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-resumen-de-tiempos-simulados">3.2.1 Tabla resumen de tiempos simulados</h4>
+<p>A continuación se presenta una tabla comparativa de los tiempos simulados para diferentes órdenes de crecimiento, utilizando distintos tamaños de entrada <span class="math inline">\(n\)</span>. Los resultados se expresan en segundos. En algunos casos, se muestra “Overflow” cuando el valor resultante excede los límites de representación.</p>
+<p>Tabla 1. Tiempos simulados para diferentes órdenes de crecimiento de O(1), O(log n), O(n), O(n log n), O(n²)</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 17%">
+<col style="width: 18%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>O(1)</th>
+<th>O(log n)</th>
+<th>O(n)</th>
+<th>O(n log n)</th>
+<th>O(n²)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>1.00e-09</td>
+<td>4.61e-09</td>
+<td>1.00e-07</td>
+<td>4.61e-07</td>
+<td>1.00e-05</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>1.00e-09</td>
+<td>6.91e-09</td>
+<td>1.00e-06</td>
+<td>6.91e-06</td>
+<td>1.00e-03</td>
+</tr>
+<tr class="odd">
+<td>10000</td>
+<td>1.00e-09</td>
+<td>9.21e-09</td>
+<td>1.00e-05</td>
+<td>9.21e-05</td>
+<td>1.00e-01</td>
+</tr>
+<tr class="even">
+<td>100000</td>
+<td>1.00e-09</td>
+<td>1.15e-08</td>
+<td>1.00e-04</td>
+<td>1.15e-03</td>
+<td>1.00e+01</td>
+</tr>
+</tbody>
+</table>
+<p>Tabla 2. Tiempos simulados para diferentes órdenes de crecimiento de O(n³), O(2ⁿ)</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>n</th>
+<th>O(n³)</th>
+<th>O(2ⁿ)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>1.00e-03</td>
+<td>1.27e+21</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>1.00e+00</td>
+<td>Overflow</td>
+</tr>
+<tr class="odd">
+<td>10000</td>
+<td>1.00e+03</td>
+<td>Overflow</td>
+</tr>
+<tr class="even">
+<td>100000</td>
+<td>1.00e+06</td>
+<td>Overflow</td>
+</tr>
+</tbody>
+</table>
+<p>Tabla 3. Tiempos simulados para diferentes órdenes de crecimiento de O(n!), O(nⁿ)</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>n</th>
+<th>O(n!)</th>
+<th>O(nⁿ)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>Overflow</td>
+<td>Overflow</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>Overflow</td>
+<td>Overflow</td>
+</tr>
+<tr class="odd">
+<td>10000</td>
+<td>Overflow</td>
+<td>Overflow</td>
+</tr>
+<tr class="even">
+<td>100000</td>
+<td>Overflow</td>
+<td>Overflow</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> Algunos valores como O(2ⁿ), O(n!) y O(nⁿ) para valores grandes de <span class="math inline">\(n\)</span> generan cantidades inmanejables por el sistema, resultando en <em>Overflow</em>. Esto refleja la inviabilidad práctica de algoritmos con estas complejidades cuando se trabaja con grandes volúmenes de datos.</p>
+</blockquote>
+<p>Como se muestra en la tabla, el tiempo de ejecución de O(1) no depende del tamaño de n.&nbsp;Este mantiene un mismo valor, lo que indica que su tiempo de ejecución es constante. Por otro lado, los valores de O(log n) aumentan lentamente a medida que n crece, lo cual es consistente con su comportamiento logarítmico. En el caso de O(n), los valores aumentan de forma lineal conforme n se incrementa. Los valores de O(n log n) aumentan más rápido que los de O(n), pero no tan aceleradamente como los de O(n²). Por su parte, O(n²) crece rápidamente a medida que n aumenta, y O(n³) lo hace de forma aún más acelerada, incluso con valores pequeños de entrada.</p>
+<p>Durante la ejecución del código, algunos resultados aparecen como “Overflow”. Esto se debe a que las funciones O(2ⁿ), O(n!) y O(nⁿ) para valores grandes de n (como 10,000 o 100,000) generan números extremadamente grandes, lo que excede la capacidad de representación y manejo numérico en Python.</p>
+</section>
+</section>
+<section id="implicaciones-de-costos-de-cómputo-necesarios-para-manipular-grandes-volúmenes-de-información" class="level3">
+<h3 class="anchored" data-anchor-id="implicaciones-de-costos-de-cómputo-necesarios-para-manipular-grandes-volúmenes-de-información">3.3 Implicaciones de costos de cómputo necesarios para manipular grandes volúmenes de información</h3>
+<p>La manipulación de grandes volúmenes de información presenta importantes desafíos debido a los costos de cómputo. Estos costos se relacionan con el gasto monetario, los recursos computacionales requeridos, el tiempo de procesamiento, el uso de memoria, el almacenamiento y el consumo energético. A continuación se presentan algunas de las implicaciones más relevantes:</p>
+<ul>
+<li><p><strong>Infraestructura:</strong> Manipular grandes volúmenes de datos requiere una infraestructura robusta, que incluye servidores potentes, almacenamiento masivo y redes de alta velocidad. Esto representa costos elevados en hardware, mantenimiento y consumo energético (Armbrust et al., 2010).</p></li>
+<li><p><strong>Energía:</strong> Los centros de datos que procesan grandes cantidades de información consumen enormes cantidades de energía, lo cual incrementa los costos operativos y contribuye al impacto ambiental debido a las emisiones de carbono (Baliga et al., 2011).</p></li>
+<li><p><strong>Almacenamiento:</strong> El almacenamiento de grandes volúmenes de datos requiere soluciones escalables y eficientes. Este aspecto representa un costo considerable, ya que también debe garantizarse la recuperación oportuna de la información.</p></li>
+<li><p><strong>Procesamiento:</strong> Procesar datos en tiempo real o en tiempo cercano al real implica el uso de algoritmos eficientes y de recursos de cómputo significativos. Estos costos pueden incrementarse especialmente al utilizar tecnologías como el aprendizaje automático y la inteligencia artificial (Wang et al., 2015).</p></li>
+</ul>
+<p>En conjunto, la gestión de grandes volúmenes de información conlleva costos considerables en términos de infraestructura, energía, almacenamiento, procesamiento, seguridad y mantenimiento. Estos aspectos deben ser cuidadosamente planeados y gestionados para asegurar soluciones de big data eficientes y sostenibles.</p>
+</section>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">4. Conclusiones</h2>
+<p>En las simulaciones realizadas se observó que los órdenes de crecimiento más bajos, como O(1), O(log n) y O(n), resultan altamente eficientes. Son ideales para tareas que demandan rendimiento óptimo y tiempos de respuesta reducidos.</p>
+<p>Por otro lado, los órdenes de crecimiento O(n log n) y O(n²) demostraron ser prácticas y ampliamente aplicables, al ofrecer un buen equilibrio entre eficiencia y capacidad de procesamiento.</p>
+<p>En contraste, las funciones con órdenes de crecimiento elevados como O(2ⁿ), O(n!) y O(nⁿ) resultaron ineficientes, generando tiempos de ejecución excesivos o incluso errores de memoria.</p>
+<p>La tabla de tiempos de ejecución simulados confirma cómo el crecimiento del orden afecta directamente el rendimiento de los algoritmos. A mayor orden, mayor consumo de recursos y tiempo; a menor orden, mayor eficiencia en la ejecución.</p>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">5. Referencias</h2>
+<ul>
+<li>Müller, V. C., Schal, J. M., Meyer-Lindenberg, A. (2016). <em>Machine Learning for Brain Imaging</em>. Cambridge University Press.</li>
+<li>Manyika, J., Chui, M., Brown, B., Bughin, J., Dobbs, R., Roxburgh, C., &amp; Byers, A. H. (2011). <em>Big data: The next frontier for innovation, competition, and productivity</em>. McKinsey Global Institute. https://www.mckinsey.com/business-functions/mckinsey-analytics/our-insights/big-data-the-next-frontier-for-innovation</li>
+<li>Armbrust, M., Fox, A., Griffith, R., Joseph, A. D., Katz, R. H., Konwinski, A., et al.&nbsp;(2010). <em>A View of Cloud Computing</em>. Communications of the ACM, 53(4), 50–58. https://doi.org/10.1145/1721654.1721672</li>
+<li>Baliga, J., Ayre, R., Hinton, K., &amp; Tucker, R. S. (2011). <em>Energy-Efficient Telecommunications</em>.</li>
+<li>Wang, L., Chen, Y., &amp; Liu, Q. (2015). <em>Big Data Processing: A Survey</em>. Springer.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -237,7 +607,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/juan21javm\.github\.io\/proyecto-analisis-de-algoritmos\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
