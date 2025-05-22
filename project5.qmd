@@ -1,7 +1,31 @@
 ---
 title: "Proyecto 5"
+format:
+  html:
+    toc: true
+    toc-title: "Tabla de Contenido"
+    toc-depth: 5
+    toc-location: right
+    toc-float: true
 ---
 
 # Proyecto 5
 
-Información sobre el Proyecto 5. Puedes expandir esta página con subsecciones.
+# 5A. 
+
+## 1. Introducción
+
+
+## 2. Desarrollo
+
+
+## 3. Análisis de Resultados
+
+
+## 4. Conclusiones
+
+
+## 5. Referencias
+
+
+## 6. Cambios Realizados

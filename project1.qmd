@@ -126,25 +126,41 @@ df
 ### 3.1 Interpretación de gráficos
 
 <div style="text-align: center;">
-  <img src="public/project1/02g.jpg" width="160px">
+  <img src="public/project1/01g1.jpg" width="460px">
 </div>
-asd
+### 3.1.1 Discusión de la Figura 1
+
+El gráfico muestra que la función constante $O(1)$ permanece constante independientemente del tamaño de la entrada, mientras que $O(\log n)$ crece lentamente conforme $n$ aumenta. Por lo tanto, un algoritmo con complejidad constante $O(1)$ es más eficiente en términos de tiempo de ejecución en comparación con uno con complejidad logarítmica $O(\log n)$.
+
 <div style="text-align: center;">
-  <img src="02g.jpg" width="160px">
+  <img src="public/project1/02g.jpg" width="460px">
 </div>
-sda
+### 3.1.2 Discusión de la Figura 2
+
+La función $O(n)$ crece linealmente con el tamaño de entrada $n$, mientras que la función $O(n \log n)$ crece más rápido que $O(n)$, pero sigue siendo práctica para valores moderados de $n$. Por lo tanto, un algoritmo con complejidad lineal $O(n)$ es más eficiente en términos de tiempo de ejecución en comparación con uno con complejidad lineal-logarítmica $O(n \log n)$.
+
+
 <div style="text-align: center;">
-  <img src="03g.jpg" width="160px">
+  <img src="public/project1/03g.jpg" width="460px">
 </div>
-sd
+### 3.1.3 Discusión de la Figura 3
+
+La función cuadrática $O(n^2)$ crece más rápidamente que la lineal, pero la función cúbica $O(n^3)$ lo hace aún con mayor rapidez. Por lo tanto, un algoritmo con complejidad cuadrática $O(n^2)$ es más eficiente en términos de tiempo de ejecución en comparación con uno con complejidad cúbica $O(n^3)$.
+
 <div style="text-align: center;">
-  <img src="04g.jpg" width="160px">
+  <img src="public/project1/04g.jpg" width="460px">
 </div>
-asd
+### 3.1.4 Discusión de la Figura 4
+
+El gráfico muestra que la complejidad factorial $O(n!)$ resulta en tiempos de ejecución mucho más altos que $O(2^n)$ a medida que el tamaño de la entrada $n$ aumenta. La complejidad factorial $O(n!)$ crece considerablemente más rápido que la complejidad exponencial $O(2^n)$, lo que hace que los algoritmos con esta complejidad sean prácticamente inutilizables para valores grandes de $n$.
+
 <div style="text-align: center;">
-  <img src="05g.jpg" width="160px">
+  <img src="public/project1/05g.jpg" width="460px">
 </div>
-asd
+### 3.1.5 Discusión de la Figura 5
+
+El gráfico muestra cómo la función factorial $O(n!)$ crece muy rápidamente, pero la función doble exponencial $O(n^n)$ crece aún más rápido a medida que aumenta el tamaño de la entrada $n$. Por lo tanto, los algoritmos con complejidad factorial y doble exponencial son prácticamente inutilizables para valores grandes de $n$.
+
 
 
 
@@ -223,3 +239,16 @@ La tabla de tiempos de ejecución simulados confirma cómo el crecimiento del or
 - Armbrust, M., Fox, A., Griffith, R., Joseph, A. D., Katz, R. H., Konwinski, A., et al. (2010). *A View of Cloud Computing*. Communications of the ACM, 53(4), 50–58. https://doi.org/10.1145/1721654.1721672
 - Baliga, J., Ayre, R., Hinton, K., & Tucker, R. S. (2011). *Energy-Efficient Telecommunications*.
 - Wang, L., Chen, Y., & Liu, Q. (2015). *Big Data Processing: A Survey*. Springer.
+
+## 6. Cambios Realizados 
+
+### 6.1 Nota sobre correcciones realizadas
+
+Los siguientes ajustes fueron aplicados al presente documento en atención a la retroalimentación recibida por parte del docente. Se atendieron los puntos señalados con el fin de mejorar la calidad formal y académica del reporte:
+
+- Se uniformó el formato del documento, manteniendo una estructura clara y coherente entre secciones.
+- Se corrigieron errores ortográficos y gramaticales, incluyendo el uso adecuado de comas y acentos.
+- Las expresiones matemáticas fueron reescritas utilizando la notación correcta en formato de ecuación (LaTeX), como es el caso de $O(1)$, $O(\log n)$, $O(n^2)$, entre otras.
+- Se estandarizaron los encabezados de cada sección para facilitar la lectura y navegación del documento.
+
+Estas modificaciones aseguran que el trabajo cumpla con los criterios de presentación solicitados y refleje un esfuerzo riguroso en la construcción y exposición del contenido.

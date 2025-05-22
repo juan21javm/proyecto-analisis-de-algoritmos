@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -68,11 +103,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -128,7 +192,38 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de Contenido</h2>
+   
+  <ul>
+  <li><a href="#a.-reporte-escrito.-experimentos-y-análisis-de-estructuras-de-datos." id="toc-a.-reporte-escrito.-experimentos-y-análisis-de-estructuras-de-datos." class="nav-link active" data-scroll-target="#a.-reporte-escrito.-experimentos-y-análisis-de-estructuras-de-datos.">2A. Reporte escrito. Experimentos y análisis de estructuras de datos.</a>
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a>
+  <ul>
+  <li><a href="#bibliotecas-utilizadas" id="toc-bibliotecas-utilizadas" class="nav-link" data-scroll-target="#bibliotecas-utilizadas">2.1 Bibliotecas utilizadas</a></li>
+  <li><a href="#implementación-del-algoritmo-de-multiplicación-de-matrices" id="toc-implementación-del-algoritmo-de-multiplicación-de-matrices" class="nav-link" data-scroll-target="#implementación-del-algoritmo-de-multiplicación-de-matrices">2.2 Implementación del algoritmo de multiplicación de matrices</a></li>
+  <li><a href="#implementación-del-algoritmo-de-eliminación-gauss-jordan" id="toc-implementación-del-algoritmo-de-eliminación-gauss-jordan" class="nav-link" data-scroll-target="#implementación-del-algoritmo-de-eliminación-gauss-jordan">2.3 Implementación del algoritmo de eliminación Gauss-Jordan</a></li>
+  <li><a href="#comparación-de-desempeño-de-los-algoritmos-implementados" id="toc-comparación-de-desempeño-de-los-algoritmos-implementados" class="nav-link" data-scroll-target="#comparación-de-desempeño-de-los-algoritmos-implementados">2.4 Comparación de desempeño de los algoritmos implementados</a></li>
+  <li><a href="#resultados-obtenidos" id="toc-resultados-obtenidos" class="nav-link" data-scroll-target="#resultados-obtenidos">2.5 Resultados obtenidos</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a>
+  <ul>
+  <li><a href="#resultados-comparativos-de-desempeño" id="toc-resultados-comparativos-de-desempeño" class="nav-link" data-scroll-target="#resultados-comparativos-de-desempeño">3.1 Resultados comparativos de desempeño</a></li>
+  <li><a href="#análisis-de-gráficos" id="toc-análisis-de-gráficos" class="nav-link" data-scroll-target="#análisis-de-gráficos">3.2 Análisis de Gráficos</a></li>
+  </ul></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a>
+  <ul>
+  <li><a href="#impacto-del-acceso-a-elementos-contiguos-en-memoria" id="toc-impacto-del-acceso-a-elementos-contiguos-en-memoria" class="nav-link" data-scroll-target="#impacto-del-acceso-a-elementos-contiguos-en-memoria">4.1 Impacto del acceso a elementos contiguos en memoria</a></li>
+  <li><a href="#uso-de-matrices-dispersas-cambios-y-costos" id="toc-uso-de-matrices-dispersas-cambios-y-costos" class="nav-link" data-scroll-target="#uso-de-matrices-dispersas-cambios-y-costos">4.2 Uso de matrices dispersas: cambios y costos</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">5. Referencias</a></li>
+  <li><a href="#cambios-realizados" id="toc-cambios-realizados" class="nav-link" data-scroll-target="#cambios-realizados">6. Cambios Realizados</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -151,11 +246,218 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="proyecto-2" class="level1">
-<h1>Proyecto 2</h1>
-<p>Descripción del Proyecto 2. Información relevante sobre este segundo proyecto.</p>
+<section id="a.-reporte-escrito.-experimentos-y-análisis-de-estructuras-de-datos." class="level1">
+<h1>2A. Reporte escrito. Experimentos y análisis de estructuras de datos.</h1>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>Los experimentos y análisis de estructuras de datos son fundamentales en la ciencia de datos, ya que permiten evaluar y optimizar el rendimiento de algoritmos y sistemas que manejan grandes volúmenes de información.</p>
+<p>Las estructuras de datos son formas de organizar y almacenar datos en una computadora para que puedan ser accedidos y modificados de manera eficiente. Cada estructura tiene sus propias ventajas y desventajas en términos de tiempo de acceso, uso de memoria y facilidad de implementación. Los experimentos en estructuras de datos suelen centrarse en medir estos aspectos bajo diferentes condiciones para determinar cuál es la más adecuada para una aplicación específica (Goodfellow et al., 2016).</p>
+<p>El diseño experimental es una etapa esencial que precede al análisis de datos. Un diseño bien planificado asegura que los datos recopilados sean relevantes y útiles para el análisis posterior. Esto incluye la definición de variables, la selección de muestras y la implementación de controles para minimizar sesgos. Estas estructuras son esenciales para el desarrollo de software eficiente, especialmente en campos como el Internet de las Cosas (IoT) y el Big Data, donde la optimización de recursos es crucial (Strang, 2016).</p>
+<p>El análisis de datos implica varias técnicas estadísticas y computacionales para interpretar los resultados experimentales. Esto puede incluir análisis exploratorio de datos (EDA) para identificar patrones y relaciones, así como análisis confirmatorio para probar hipótesis específicas. Herramientas como Hadoop, Spark, Power BI, Pandas y R son comúnmente utilizadas en este proceso (Grcar, 2011).</p>
+<p>La multiplicación de matrices es una operación básica que se utiliza en numerosos cálculos matemáticos y algoritmos computacionales. Su relevancia radica en su capacidad para transformar y combinar datos de manera que se puedan extraer insights significativos. La eliminación gaussiana es un método clásico para resolver sistemas de ecuaciones lineales, transformando una matriz en una forma escalonada reducida por filas. Este método es ampliamente utilizado debido a su estabilidad numérica y su capacidad para manejar sistemas grandes.</p>
+<p>El objetivo es entender cómo se comportan estos algoritmos en diferentes situaciones, especialmente en cuanto al número de operaciones (como multiplicaciones y sumas) y el tiempo que tardan en ejecutarse en la práctica. Para abordar esta cuestión, se plantea un estudio comparativo utilizando matrices aleatorias de tamaño <span class="math inline">\(n \times n\)</span> para <span class="math inline">\(n = 100\)</span>, <span class="math inline">\(300\)</span>, <span class="math inline">\(1000\)</span>. Este enfoque permitirá evaluar la eficiencia de cada algoritmo y proporcionará una base sólida para futuras optimizaciones. Al comparar estos algoritmos, se busca responder a preguntas clave como: ¿Qué puedes concluir?, ¿Cuál es el impacto de acceder a los elementos contiguos en memoria de una matriz?, ¿Qué cambiarías si utilizas matrices dispersas?, y ¿Cuáles serían los costos?</p>
+</section>
+<section id="desarrollo" class="level2">
+<h2 class="anchored" data-anchor-id="desarrollo">2. Desarrollo</h2>
+<section id="bibliotecas-utilizadas" class="level3">
+<h3 class="anchored" data-anchor-id="bibliotecas-utilizadas">2.1 Bibliotecas utilizadas</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="implementación-del-algoritmo-de-multiplicación-de-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="implementación-del-algoritmo-de-multiplicación-de-matrices">2.2 Implementación del algoritmo de multiplicación de matrices</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matrix_multiplication(A, B):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(A)  <span class="co"># Tamaño de la matriz (n x n)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> np.zeros((n, n))  <span class="co"># Inicializar la matriz resultante con ceros</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    operations <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Contador de operaciones</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                C[i][j] <span class="op">+=</span> A[i][k] <span class="op">*</span> B[k][j]  <span class="co"># Multiplicación y suma</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                operations <span class="op">+=</span> <span class="dv">2</span>  <span class="co"># Una multiplicación y una suma</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> C, operations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="implementación-del-algoritmo-de-eliminación-gauss-jordan" class="level3">
+<h3 class="anchored" data-anchor-id="implementación-del-algoritmo-de-eliminación-gauss-jordan">2.3 Implementación del algoritmo de eliminación Gauss-Jordan</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gauss_jordan(A):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(A)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    operations <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.array(A, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> A[i][i] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i<span class="op">+</span><span class="dv">1</span>, n):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> A[j][i] <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                    A[[i, j]] <span class="op">=</span> A[[j, i]]  <span class="co"># Intercambio de filas</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                    operations <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">break</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        div <span class="op">=</span> A[i][i]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        A[i] <span class="op">=</span> A[i] <span class="op">/</span> div</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        operations <span class="op">+=</span> n  <span class="co"># n divisiones</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">!=</span> j:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                A[j] <span class="op">=</span> A[j] <span class="op">-</span> A[j][i] <span class="op">*</span> A[i]</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                operations <span class="op">+=</span> n  <span class="co"># n multiplicaciones y restas</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> A, operations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="comparación-de-desempeño-de-los-algoritmos-implementados" class="level3">
+<h3 class="anchored" data-anchor-id="comparación-de-desempeño-de-los-algoritmos-implementados">2.4 Comparación de desempeño de los algoritmos implementados</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sizes <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">1000</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> sizes:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.random.rand(n, n)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    B <span class="op">=</span> np.random.rand(n, n)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Multiplicación de matrices</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    C, mult_operations <span class="op">=</span> matrix_multiplication(A, B)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    mult_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Eliminación Gaussiana</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    _, gauss_operations <span class="op">=</span> gauss_jordan(A)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    gauss_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    results.append({</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'n'</span>: n,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'mult_operations'</span>: mult_operations,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'mult_time'</span>: mult_time,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'gauss_operations'</span>: gauss_operations,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'gauss_time'</span>: gauss_time</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="resultados-obtenidos" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-obtenidos">2.5 Resultados obtenidos</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> result <span class="kw">in</span> results:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Tamaño de la matriz (n): </span><span class="sc">{</span>result[<span class="st">'n'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">" Multiplicación de Matrices:"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f" Operaciones: </span><span class="sc">{</span>result[<span class="st">'mult_operations'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f" Tiempo (s): </span><span class="sc">{</span>result[<span class="st">'mult_time'</span>]<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">" Eliminación Gaussiana:"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f" Operaciones: </span><span class="sc">{</span>result[<span class="st">'gauss_operations'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f" Tiempo (s): </span><span class="sc">{</span>result[<span class="st">'gauss_time'</span>]<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="análisis-de-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-resultados">3. Análisis de Resultados</h2>
+<section id="resultados-comparativos-de-desempeño" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-comparativos-de-desempeño">3.1 Resultados comparativos de desempeño</h3>
+<p>A continuación se muestra una tabla con los resultados obtenidos al comparar la multiplicación de matrices y la eliminación Gauss-Jordan sobre matrices de distintos tamaños. Se reporta el número total de operaciones y el tiempo de ejecución en segundos.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 27%">
+<col style="width: 26%">
+<col style="width: 18%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tamaño (n)</th>
+<th>Operaciones Multiplicación</th>
+<th>Tiempo Multiplicación (s)</th>
+<th>Operaciones Gauss</th>
+<th>Tiempo Gauss (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>2,000,000</td>
+<td>1.829321</td>
+<td>1,000,000</td>
+<td>0.066816</td>
+</tr>
+<tr class="even">
+<td>300</td>
+<td>54,000,000</td>
+<td>30.990801</td>
+<td>27,000,000</td>
+<td>0.399951</td>
+</tr>
+<tr class="odd">
+<td>1000</td>
+<td>2,000,000,000</td>
+<td>1071.753574</td>
+<td>1,000,000,000</td>
+<td>5.316519</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> La eliminación Gauss-Jordan muestra una notable ventaja en tiempo de ejecución respecto a la multiplicación de matrices, aunque ambas mantienen una proporción consistente en la cantidad de operaciones requeridas.</p>
+</blockquote>
+<p>Los resultados obtenidos muestran el desempeño de dos operaciones: la multiplicación de matrices y la eliminación gaussiana/Gauss-Jordan sobre matrices de diferentes tamaños (100, 300 y 1000), cuantificando el número de operaciones y el tiempo de ejecución, como se muestra en la Tabla 1.</p>
+</section>
+<section id="análisis-de-gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-gráficos">3.2 Análisis de Gráficos</h3>
+<div style="text-align: center;">
+<p><img src="public/project2/001.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project2/002.jpg" width="460px"></p>
+</div>
+<p>En los Gráficos 1 y 2, se aprecia visualmente cómo se ve afectado el número de operaciones y el tiempo de ejecución en relación con el tamaño de la matriz.</p>
+<p>En cuanto a la multiplicación de matrices, el número de operaciones aumenta significativamente con el tamaño de la matriz, lo cual es de esperarse, ya que se trata de una operación computacionalmente intensiva. El tiempo de ejecución también aumenta proporcionalmente, reflejando el impacto del crecimiento en complejidad.</p>
+<p>Por otro lado, la eliminación gaussiana/Gauss-Jordan muestra una tendencia similar: a mayor tamaño de la matriz, mayor número de operaciones y mayor tiempo de procesamiento. Específicamente, para una matriz de tamaño <span class="math inline">\(n = 1000\)</span>, el tiempo fue de 1,071.753 segundos para la multiplicación de matrices y 5.316 segundos para la eliminación gaussiana, destacando una diferencia considerable a favor del segundo método en términos de eficiencia temporal.</p>
+<p>El rendimiento puede verse influenciado por el hardware utilizado, como la capacidad de memoria, la arquitectura del procesador, y otros componentes del sistema. Estos factores afectan directamente el tiempo de ejecución observado. Entre los elementos que más impactan se incluyen la cantidad y velocidad de la memoria RAM, la arquitectura del procesador, el número de núcleos e hilos de ejecución, la frecuencia de reloj, la memoria caché del procesador, el tipo de almacenamiento, y la tecnología de la GPU si es utilizada (Raina et al., 2009).</p>
+</section>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">4. Conclusiones</h2>
+<section id="impacto-del-acceso-a-elementos-contiguos-en-memoria" class="level3">
+<h3 class="anchored" data-anchor-id="impacto-del-acceso-a-elementos-contiguos-en-memoria">4.1 Impacto del acceso a elementos contiguos en memoria</h3>
+<p>El impacto de acceder a elementos contiguos en memoria de una matriz es un concepto fundamental en la optimización del rendimiento de programas. Este principio se basa en cómo los datos se almacenan y acceden en la memoria de una computadora.</p>
+<p>Cuando los elementos de una matriz se almacenan de manera contigua en la memoria, el procesador puede acceder a ellos de forma más eficiente. Esto se debe a varios factores: el uso de la caché del procesador, el aumento de la localidad espacial, el prefetching, la reducción del consumo de energía y las operaciones vectorizadas.</p>
+<p>La caché es una memoria de acceso rápido que almacena copias de datos que se utilizan frecuentemente, y cuando los datos están almacenados de manera contigua, es más probable que se carguen en la caché en bloques grandes, reduciendo así el tiempo de acceso.</p>
+<p>La localidad espacial hace referencia a la tendencia de los programas a acceder a datos que están cerca unos de otros en la memoria. Cuando los datos están almacenados de manera contigua, se mejora la localidad espacial, lo que permite al procesador acceder a los datos de manera más rápida.</p>
+<p>Los procesadores utilizan técnicas de prefetching para anticipar qué datos se necesitarán en el futuro y cargarlos en la caché antes de que sean solicitados. Cuando los datos están almacenados de manera contigua, el prefetching es más efectivo, ya que el procesador puede cargar bloques grandes de datos.</p>
+<p>Otro impacto importante es la reducción del consumo de energía; un mejor uso de la caché y una menor latencia también pueden traducirse en un menor consumo energético.</p>
+<p>El acceso contiguo a la memoria también puede influir en el rendimiento de las operaciones vectorizadas, que son comunes en aplicaciones científicas y de ingeniería. Las operaciones vectorizadas permiten al procesador realizar múltiples operaciones en paralelo, y cuando los datos están almacenados de manera contigua, es más fácil para el procesador realizarlas de manera eficiente (Bryant, 2016).</p>
+</section>
+<section id="uso-de-matrices-dispersas-cambios-y-costos" class="level3">
+<h3 class="anchored" data-anchor-id="uso-de-matrices-dispersas-cambios-y-costos">4.2 Uso de matrices dispersas: cambios y costos</h3>
+<p>Si utilizáramos matrices dispersas, estas tendrían un impacto en el rendimiento y la eficiencia de un programa, especialmente al trabajar con grandes conjuntos de datos donde la mayoría de los elementos son cero.</p>
+<p>Los cambios al utilizar matrices dispersas incluyen:</p>
+<ul>
+<li><p><strong>Reducción del uso de memoria:</strong> Las matrices dispersas almacenan solo los elementos no nulos y sus posiciones, lo que reduce significativamente el uso de memoria en comparación con matrices densas.</p></li>
+<li><p><strong>Optimización de operaciones:</strong> Las operaciones matemáticas pueden ser más eficientes al realizarse únicamente sobre los elementos no nulos, disminuyendo así el tiempo de cómputo.</p></li>
+<li><p><strong>Uso de bibliotecas especializadas:</strong> Se requiere el uso de bibliotecas diseñadas específicamente para manejar matrices dispersas de forma eficiente.</p></li>
+</ul>
+<p>Sin embargo, también se presentan algunos costos y desafíos:</p>
+<ul>
+<li><p><strong>Mayor complejidad en la implementación:</strong> Los algoritmos que manejan matrices dispersas pueden ser más complejos que los que utilizan matrices densas, requiriendo mayor tiempo de desarrollo y depuración.</p></li>
+<li><p><strong>Mantenimiento e interoperabilidad:</strong> La integración con sistemas o bibliotecas que no admiten matrices dispersas puede generar la necesidad de realizar conversiones costosas entre formatos.</p></li>
+<li><p><strong>Operaciones costosas:</strong> Inserciones y eliminaciones pueden requerir mayor tiempo de procesamiento, debido a la necesidad de actualizar estructuras de índices.</p></li>
+<li><p><strong>Sobrecarga de gestión de datos:</strong> Aunque se reduce el uso de memoria, la administración adicional puede afectar el rendimiento, especialmente si la matriz no es extremadamente dispersa.</p></li>
+<li><p><strong>Costos de conversión:</strong> Si es necesario convertir entre matrices densas y dispersas, esto puede introducir costos adicionales tanto en tiempo de ejecución como en memoria (Bryant, 2016).</p></li>
+</ul>
+</section>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">5. Referencias</h2>
+<ul>
+<li>Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). <em>Deep Learning</em>. MIT Press.</li>
+<li>Strang, G. (2016). <em>Introduction to Linear Algebra</em> (5ª edición). Wellesley-Cambridge Press.</li>
+<li>Grcar, J. F. (2011). “Mathematicians of Gaussian Elimination.” <em>Notices of the American Mathematical Society</em>, 58(6), 782–792.</li>
+<li>Bryant, R. E., &amp; O’Hallaron, D. R. (2016). <em>Computer Systems: A Programmer’s Perspective</em> (3rd ed.). Pearson.</li>
+<li>Teresa-Motiv, Saisang, brittmsantos, eross-msft, &amp; JasonGerend. (2023, 17 de abril). <em>Consideraciones sobre el uso de memoria para la optimización del rendimiento de AD DS</em>.</li>
+<li>Raina, R., Madhavan, A., &amp; Ng, A. Y. (2009). <em>Large-scale Deep Unsupervised Learning using Graphics Processors</em>. Computer Science Department, Stanford University.</li>
+</ul>
+</section>
+<section id="cambios-realizados" class="level2">
+<h2 class="anchored" data-anchor-id="cambios-realizados">6. Cambios Realizados</h2>
+<p>Se hicieron mejoras en el planteamiento de los experimentos y en la discusión de los resultados, como fue indicado por el maestro. Ahora cada figura tiene una explicación clara sobre lo que muestra y lo que significa. También se mejoró la redacción para que las ideas sean más comprensibles y ordenadas.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -231,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/juan21javm\.github\.io\/proyecto-analisis-de-algoritmos\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
