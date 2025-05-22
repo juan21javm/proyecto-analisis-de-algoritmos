@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Juan Antonio Velásquez Martínez">
 
-<title>Página Principal – Analisis de algoritmos</title>
+<title>Centro de Investigación e Innovación en Tecnologías de la Información y Comunicación – Analisis de algoritmos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,13 +135,20 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Página Principal</h1>
+<h1 class="title">Centro de Investigación e Innovación en Tecnologías de la Información y Comunicación</h1>
+<p class="subtitle lead">Análisis de Algoritmos 2025-1</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Juan Antonio Velásquez Martínez </p>
+          </div>
+  </div>
     
   
     
@@ -151,9 +159,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenido" class="level1">
-<h1>Bienvenido</h1>
-<p>Esta es la página principal de mi sitio hecho en <strong>Quarto</strong>.</p>
+<div style="text-align: center;">
+<p><img src="1l.jpg" width="160px"></p>
+</div>
+<hr style="border: none; height: 3px; background-color: blue; margin-top: 2em; margin-bottom: 2em;">
+<section id="presentación-del-proyecto" class="level2">
+<h2 class="anchored" data-anchor-id="presentación-del-proyecto">Presentación del proyecto</h2>
+<p>En esta página se encuentran reflejados los cinco reportes desarrollados a lo largo de la asignatura de <em>Análisis de Algoritmos</em>. Cada uno de ellos ha sido debidamente documentado, estructurado y trasladado al formato Quarto con el propósito de comunicar al público el trabajo realizado y los análisis efectuados durante mi estancia en la materia. Estos reportes representan el proceso de aprendizaje y aplicación práctica de los conceptos clave abordados en cada unidad, desde la introducción al análisis algorítmico hasta los algoritmos de intersección de conjuntos, permitiendo evidenciar el desarrollo de competencias técnicas y analíticas fundamentales en el área.</p>
+<p>Esta documentación ha sido preparada para su publicación en un repositorio de GitHub con el objetivo de compartir de forma abierta los contenidos desarrollados, promover el acceso al conocimiento, y facilitar su consulta por parte de docentes, estudiantes y profesionales interesados en el análisis de algoritmos.</p>
+<p>A lo largo del curso se desarrollaron cinco tareas escritas que reflejan los temas fundamentales abordados en cada unidad:</p>
+<ul>
+<li><p><strong>Unidad 1: Introducción al análisis de algoritmos</strong><br>
+Se realizó el reporte <strong>1A. Reporte escrito. Experimentos y análisis</strong>, en el que se exploraron conceptos básicos sobre la eficiencia algorítmica y órdenes de crecimiento.</p></li>
+<li><p><strong>Unidad 2: Estructuras de datos</strong><br>
+Se trabajó el reporte <strong>2A. Reporte escrito. Experimentos y análisis de estructuras de datos</strong>, enfocado en el comportamiento, manipulación y análisis de distintas estructuras como listas, pilas, colas y árboles.</p></li>
+<li><p><strong>Unidad 3: Algoritmos de ordenamiento por comparación</strong><br>
+Se elaboró el <strong>3A. Reporte escrito. Experimentos y análisis de algoritmos de ordenamiento</strong>, donde se evaluaron métodos como burbuja, inserción, selección, quicksort y mergesort.</p></li>
+<li><p><strong>Unidad 4: Algoritmos de búsqueda por comparación</strong><br>
+Se desarrolló el reporte <strong>4A. Reporte escrito. Experimentos y análisis de algoritmos de búsqueda por comparación</strong>, abordando técnicas como la búsqueda lineal y binaria, con un enfoque en su eficiencia.</p></li>
+<li><p><strong>Unidad 5: Algoritmos de intersección y unión de conjuntos en el modelo de comparación</strong><br>
+Se presentó el <strong>5A. Reporte escrito. Experimentos y análisis de algoritmos de intersección de conjuntos</strong>, donde se analizaron distintas estrategias para operar sobre múltiples listas ordenadas.</p></li>
+</ul>
 
 
 </section>
@@ -231,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/juan21javm\.github\.io\/proyecto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

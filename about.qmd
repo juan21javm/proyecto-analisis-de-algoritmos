@@ -1,7 +1,62 @@
 ---
-title: "Acerca de"
+title: "Sobre Mí"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-title: "Sobre Mí"
 ---
 
-# Acerca de este sitio
+# Juan Antonio Velásquez Martínez
 
-Aquí puedes colocar información sobre el propósito del proyecto.
+📍 *Aguascalientes, México*  
+✉️ juan2javm@gmail.com / jvelasquez1800@alumno.ipn.mx  
+📱 +52 322 353 4081  
+🔗 [GitHub: juan21javm](https://github.com/juan21javm)  
+🔗 [LinkedIn: antonio-martínez-776788179](https://www.linkedin.com/in/antonio-mart%C3%ADnez-776788179)
+
+---
+
+## Perfil Personal
+
+
+Me considero una persona profundamente comprometida con el crecimiento intelectual, la lectura reflexiva y el bienestar de mi entorno cercano. Disfruto de los momentos al aire libre, donde encuentro inspiración en la naturaleza y la tranquilidad necesaria para mantener un equilibrio emocional. Valoro profundamente el tiempo con mi familia, ya que es el motor que impulsa mi disciplina, responsabilidad y deseo de superación constante. Asimismo, tengo una gran pasión por la programación y un genuino entusiasmo por la ciencia de datos, áreas que me permiten combinar creatividad, lógica y análisis riguroso para resolver problemas del mundo real. Estos principios personales complementan mi formación académica y profesional, motivándome a mantener siempre una actitud proactiva, ética y humana.
+
+---
+
+## Experiencia
+
+**Supervisor** — INE (2023–2025), Loreto, Zacatecas  
+- Supervisión de actividades diarias para cumplimiento de objetivos.  
+- Capacitación del equipo y mejora de rendimiento.  
+- Evaluación de desempeño y optimización de procesos.
+
+**Maestro Asistente** — IPN (2022–2023), Zacatecas  
+- Evaluación del progreso estudiantil.  
+- Planeación conjunta de actividades educativas.  
+- Creación y adaptación de materiales educativos.
+
+---
+
+## Proyectos, Conferencias y Reconocimientos
+
+**Proyecto A** — *Estandarización de proceso a nivel laboratorio* (2021–2023)  
+- Herramientas: MATLAB, HACCP Software, Latex  
+- Liderazgo de investigación para producción de yogurt con uvas a nivel laboratorio.  
+- Reconocimiento al mejor promedio del programa académico (IPN 2017–2022).  
+- Primer lugar en Simposium Agroalimentario y Ciclo de Conferencias CUALTIA 2023.  
+
+---
+
+## Habilidades
+
+- **Lenguajes:** Python, JAVA, HTML, ASPEN   
+- **Herramientas Matemáticas:** MATLAB, R, SPSS, PLC  
+- **Ofimática:** Office, LaTeX
+
+---
+
+## Información adicional
+
+- **Idiomas:** Español (nativo), Inglés (B1)  
+- **Intereses:** Lectura, búsqueda, planeación

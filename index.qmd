@@ -1,7 +1,34 @@
 ---
-title: "Página Principal"
+title: "Centro de Investigación e Innovación en Tecnologías de la Información y Comunicación"
+subtitle: "Análisis de Algoritmos 2025-1"
+author: "Juan Antonio Velásquez Martínez"
 ---
+<div style="text-align: center;">
+  <img src="1l.jpg" width="160px">
+</div>
 
-# Bienvenido
 
-Esta es la página principal de mi sitio hecho en **Quarto**.
+<hr style="border: none; height: 3px; background-color: blue; margin-top: 2em; margin-bottom: 2em;">
+
+## Presentación del proyecto
+
+En esta página se encuentran reflejados los cinco reportes desarrollados a lo largo de la asignatura de *Análisis de Algoritmos*. Cada uno de ellos ha sido debidamente documentado, estructurado y trasladado al formato Quarto con el propósito de comunicar al público el trabajo realizado y los análisis efectuados durante mi estancia en la materia. Estos reportes representan el proceso de aprendizaje y aplicación práctica de los conceptos clave abordados en cada unidad, desde la introducción al análisis algorítmico hasta los algoritmos de intersección de conjuntos, permitiendo evidenciar el desarrollo de competencias técnicas y analíticas fundamentales en el área.
+
+Esta documentación ha sido preparada para su publicación en un repositorio de GitHub con el objetivo de compartir de forma abierta los contenidos desarrollados, promover el acceso al conocimiento, y facilitar su consulta por parte de docentes, estudiantes y profesionales interesados en el análisis de algoritmos.
+
+A lo largo del curso se desarrollaron cinco tareas escritas que reflejan los temas fundamentales abordados en cada unidad:
+
+- **Unidad 1: Introducción al análisis de algoritmos**  
+  Se realizó el reporte **1A. Reporte escrito. Experimentos y análisis**, en el que se exploraron conceptos básicos sobre la eficiencia algorítmica y órdenes de crecimiento.
+
+- **Unidad 2: Estructuras de datos**  
+  Se trabajó el reporte **2A. Reporte escrito. Experimentos y análisis de estructuras de datos**, enfocado en el comportamiento, manipulación y análisis de distintas estructuras como listas, pilas, colas y árboles.
+
+- **Unidad 3: Algoritmos de ordenamiento por comparación**  
+  Se elaboró el **3A. Reporte escrito. Experimentos y análisis de algoritmos de ordenamiento**, donde se evaluaron métodos como burbuja, inserción, selección, quicksort y mergesort.
+
+- **Unidad 4: Algoritmos de búsqueda por comparación**  
+  Se desarrolló el reporte **4A. Reporte escrito. Experimentos y análisis de algoritmos de búsqueda por comparación**, abordando técnicas como la búsqueda lineal y binaria, con un enfoque en su eficiencia.
+
+- **Unidad 5: Algoritmos de intersección y unión de conjuntos en el modelo de comparación**  
+  Se presentó el **5A. Reporte escrito. Experimentos y análisis de algoritmos de intersección de conjuntos**, donde se analizaron distintas estrategias para operar sobre múltiples listas ordenadas.
