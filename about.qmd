@@ -20,11 +20,11 @@ format:
 ## Perfil Personal
 
 
-Me considero una persona profundamente comprometida con el crecimiento intelectual, la lectura reflexiva y el bienestar de mi entorno cercano. Disfruto de los momentos al aire libre, donde encuentro inspiración en la naturaleza y la tranquilidad necesaria para mantener un equilibrio emocional. Valoro profundamente el tiempo con mi familia, ya que es el motor que impulsa mi disciplina, responsabilidad y deseo de superación constante. Asimismo, tengo una gran pasión por la programación y un genuino entusiasmo por la ciencia de datos, áreas que me permiten combinar creatividad, lógica y análisis riguroso para resolver problemas del mundo real. Estos principios personales complementan mi formación académica y profesional, motivándome a mantener siempre una actitud proactiva, ética y humana.
+Me considero una persona profundamente comprometida con el crecimiento intelectual, la lectura reflexiva y el bienestar de mi entorno cercano. Disfruto de los momentos al aire libre, donde encuentro inspiración en la naturaleza y la tranquilidad necesaria para mantener un equilibrio emocional. Valoro profundamente el tiempo con mi familia, ya que es el motor que impulsa mi disciplina, responsabilidad y deseo de superación constante. Asimismo, tengo una gran pasión por la programación y un genuino entusiasmo por la ciencia de datos, áreas que me permiten combinar creatividad, lógica y análisis. Estos principios personales complementan mi formación académica y profesional, motivándome a mantener siempre una actitud proactiva, ética y humana.
 
 ---
 
-## Experiencia
+## Experiencia Laboral
 
 **Supervisor** — INE (2023–2025), Loreto, Zacatecas  
 - Supervisión de actividades diarias para cumplimiento de objetivos.  

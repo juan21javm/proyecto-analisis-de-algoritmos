@@ -180,6 +180,7 @@ Se desarrolló el reporte <strong>4A. Reporte escrito. Experimentos y análisis 
 <li><p><strong>Unidad 5: Algoritmos de intersección y unión de conjuntos en el modelo de comparación</strong><br>
 Se presentó el <strong>5A. Reporte escrito. Experimentos y análisis de algoritmos de intersección de conjuntos</strong>, donde se analizaron distintas estrategias para operar sobre múltiples listas ordenadas.</p></li>
 </ul>
+<p>He realizado todos los cambios y correcciones indicados por el profesor en cada uno de mis proyectos. Las observaciones fueron cuidadosamente revisadas y aplicadas, incluyendo ajustes en los algoritmos, análisis de resultados y redacción de los reportes. Cada informe fue modificado conforme a los comentarios recibidos, asegurando que tanto la parte técnica como la presentación cumplan con los criterios establecidos. Los reportes finales reflejan ya todas estas mejoras y se encuentran actualizados y corregidos conforme a lo solicitado.</p>
 
 
 </section>
@@ -257,7 +258,7 @@ Se presentó el <strong>5A. Reporte escrito. Experimentos y análisis de algorit
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/juan21javm\.github\.io\/proyecto-analisis-de-algoritmos\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

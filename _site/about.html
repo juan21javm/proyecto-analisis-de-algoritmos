@@ -176,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="perfil-personal" class="level2">
 <h2 class="anchored" data-anchor-id="perfil-personal">Perfil Personal</h2>
-<p>Me considero una persona profundamente comprometida con el crecimiento intelectual, la lectura reflexiva y el bienestar de mi entorno cercano. Disfruto de los momentos al aire libre, donde encuentro inspiración en la naturaleza y la tranquilidad necesaria para mantener un equilibrio emocional. Valoro profundamente el tiempo con mi familia, ya que es el motor que impulsa mi disciplina, responsabilidad y deseo de superación constante. Asimismo, tengo una gran pasión por la programación y un genuino entusiasmo por la ciencia de datos, áreas que me permiten combinar creatividad, lógica y análisis riguroso para resolver problemas del mundo real. Estos principios personales complementan mi formación académica y profesional, motivándome a mantener siempre una actitud proactiva, ética y humana.</p>
+<p>Me considero una persona profundamente comprometida con el crecimiento intelectual, la lectura reflexiva y el bienestar de mi entorno cercano. Disfruto de los momentos al aire libre, donde encuentro inspiración en la naturaleza y la tranquilidad necesaria para mantener un equilibrio emocional. Valoro profundamente el tiempo con mi familia, ya que es el motor que impulsa mi disciplina, responsabilidad y deseo de superación constante. Asimismo, tengo una gran pasión por la programación y un genuino entusiasmo por la ciencia de datos, áreas que me permiten combinar creatividad, lógica y análisis. Estos principios personales complementan mi formación académica y profesional, motivándome a mantener siempre una actitud proactiva, ética y humana.</p>
 <hr>
 </section>
 <section id="experiencia" class="level2">
@@ -296,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/juan21javm\.github\.io\/proyecto-analisis-de-algoritmos\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
