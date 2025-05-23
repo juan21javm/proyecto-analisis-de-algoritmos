@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -68,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -133,12 +197,35 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de Contenido</h2>
    
   <ul>
-  <li><a href="#proyecto-3" id="toc-proyecto-3" class="nav-link active" data-scroll-target="#proyecto-3">Proyecto 3</a></li>
-  <li><a href="#a." id="toc-a." class="nav-link" data-scroll-target="#a.">3A.</a>
+  <li><a href="#a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-ordenamiento." id="toc-a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-ordenamiento." class="nav-link active" data-scroll-target="#a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-ordenamiento.">3A. Reporte escrito. Experimentos y análisis de algoritmos de ordenamiento.</a>
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a></li>
-  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a></li>
-  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a>
+  <ul>
+  <li><a href="#bibliotecas-y-carga-de-archivos-json" id="toc-bibliotecas-y-carga-de-archivos-json" class="nav-link" data-scroll-target="#bibliotecas-y-carga-de-archivos-json">2.1 Bibliotecas y Carga de archivos JSON</a></li>
+  <li><a href="#implementación-de-algoritmos-de-ordenamiento" id="toc-implementación-de-algoritmos-de-ordenamiento" class="nav-link" data-scroll-target="#implementación-de-algoritmos-de-ordenamiento">2.2 Implementación de algoritmos de ordenamiento</a>
+  <ul class="collapse">
+  <li><a href="#heapsort" id="toc-heapsort" class="nav-link" data-scroll-target="#heapsort">2.2.1 Heapsort</a></li>
+  <li><a href="#mergesort" id="toc-mergesort" class="nav-link" data-scroll-target="#mergesort">2.2.2 Mergesort</a></li>
+  <li><a href="#quicksort" id="toc-quicksort" class="nav-link" data-scroll-target="#quicksort">2.2.3 Quicksort</a></li>
+  <li><a href="#bubblesort" id="toc-bubblesort" class="nav-link" data-scroll-target="#bubblesort">2.2.4 Bubblesort</a></li>
+  <li><a href="#skiplist" id="toc-skiplist" class="nav-link" data-scroll-target="#skiplist">2.2.5 SkipList</a></li>
+  </ul></li>
+  <li><a href="#medición-de-tiempo-y-comparaciones" id="toc-medición-de-tiempo-y-comparaciones" class="nav-link" data-scroll-target="#medición-de-tiempo-y-comparaciones">2.3 Medición de tiempo y comparaciones</a></li>
+  <li><a href="#aplicación-de-algoritmos-y-visualización-de-resultados" id="toc-aplicación-de-algoritmos-y-visualización-de-resultados" class="nav-link" data-scroll-target="#aplicación-de-algoritmos-y-visualización-de-resultados">2.4 Aplicación de algoritmos y visualización de resultados</a></li>
+  <li><a href="#resultados-y-gráficas" id="toc-resultados-y-gráficas" class="nav-link" data-scroll-target="#resultados-y-gráficas">2.5 Resultados y gráficas</a></li>
+  <li><a href="#revisión-de-mejoras-implementadas" id="toc-revisión-de-mejoras-implementadas" class="nav-link" data-scroll-target="#revisión-de-mejoras-implementadas">2.6 Revisión de mejoras implementadas</a></li>
+  </ul></li>
+  <li><a href="#resultados-experimentales-y-análisis-de-resultados" id="toc-resultados-experimentales-y-análisis-de-resultados" class="nav-link" data-scroll-target="#resultados-experimentales-y-análisis-de-resultados">3. Resultados experimentales y Análisis de Resultados</a>
+  <ul>
+  <li><a href="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p016.json" id="toc-promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p016.json" class="nav-link" data-scroll-target="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p016.json">3.1 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=016.json</a></li>
+  <li><a href="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p032.json" id="toc-promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p032.json" class="nav-link" data-scroll-target="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p032.json">3.2 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=032.json</a></li>
+  <li><a href="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p064.json" id="toc-promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p064.json" class="nav-link" data-scroll-target="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p064.json">3.3 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=064.json</a></li>
+  <li><a href="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p128.json" id="toc-promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p128.json" class="nav-link" data-scroll-target="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p128.json">3.4 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=128.json</a></li>
+  <li><a href="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p256.json" id="toc-promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p256.json" class="nav-link" data-scroll-target="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p256.json">3.5 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=256.json</a></li>
+  <li><a href="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p512.json" id="toc-promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p512.json" class="nav-link" data-scroll-target="#promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p512.json">3.6 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=512.json</a></li>
+  <li><a href="#consideraciones" id="toc-consideraciones" class="nav-link" data-scroll-target="#consideraciones">3.7 Consideraciones</a></li>
+  </ul></li>
   <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">5. Referencias</a></li>
   <li><a href="#cambios-realizados" id="toc-cambios-realizados" class="nav-link" data-scroll-target="#cambios-realizados">6. Cambios Realizados</a></li>
@@ -168,28 +255,628 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="proyecto-3" class="level1">
-<h1>Proyecto 3</h1>
-</section>
-<section id="a." class="level1">
-<h1>3A.</h1>
+<section id="a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-ordenamiento." class="level1">
+<h1>3A. Reporte escrito. Experimentos y análisis de algoritmos de ordenamiento.</h1>
 <section id="introducción" class="level2">
 <h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>La investigación sobre el análisis de algoritmos de ordenamiento es un campo activo, con numerosos estudios que exploran nuevas técnicas y optimizaciones. Ordenar datos es crucial en la ciencia de datos y la computación, con aplicaciones que abarcan desde la gestión de bases de datos hasta la optimización de algoritmos en inteligencia artificial. La eficiencia de los algoritmos de ordenamiento es importante, ya que puede influir significativamente en el rendimiento general de un sistema.</p>
+<p>La eficiencia de un algoritmo de ordenamiento se mide principalmente en términos de tiempo y espacio. El tiempo se refiere a cuántas operaciones realiza el algoritmo, mientras que el espacio indica cuánta memoria adicional necesita. Un algoritmo de ordenamiento es estable si mantiene el orden relativo de los elementos iguales. La estabilidad es crucial en aplicaciones donde el orden original de los elementos iguales debe preservarse. Algunos algoritmos pueden aprovechar el orden existente en los datos para mejorar su rendimiento, mostrando así una adaptabilidad eficiente. La complejidad del algoritmo en el peor caso es una métrica importante para evaluar su robustez (Knuth, 2011).</p>
+<p>La elección del algoritmo de ordenamiento adecuado depende de varios factores, incluyendo el tamaño de los datos, el grado de desorden y las restricciones de tiempo y espacio. El algoritmo <strong>Heapsort</strong> utiliza una estructura de datos llamada heap para ordenar los elementos. Es eficiente en términos de uso de memoria y tiene una complejidad de <span class="math inline">\(O(n \log n)\)</span>. Por otro lado, el algoritmo <strong>Mergesort</strong> es un enfoque de divide y vencerás que divide la lista en mitades, las ordena recursivamente y luego las fusiona. Es estable y tiene una complejidad de <span class="math inline">\(O(n \log n)\)</span>.</p>
+<p><strong>Quicksort</strong> también sigue el enfoque de divide y vencerás, seleccionando un elemento como pivote y particionando la lista en elementos menores y mayores. Aunque en promedio es rápido, puede degradarse a <span class="math inline">\(O(n^2)\)</span> en el peor caso. <strong>Bubblesort</strong> es un algoritmo simple que compara elementos adyacentes y los intercambia si están en el orden incorrecto. Es ineficiente para grandes conjuntos de datos debido a su complejidad cuadrática. Finalmente, la estructura de datos <strong>SkipList</strong> es una estructura probabilística que permite búsquedas y ordenamientos eficientes. Aunque no es un algoritmo de ordenamiento tradicional, puede ser utilizada para mantener una lista ordenada de elementos (Cormen, 2009).</p>
+<p>Para evaluar y comparar el rendimiento de estos cinco algoritmos de ordenamiento (Heapsort, Mergesort, Quicksort, Bubblesort y SkipList), se seleccionaron primero los algoritmos basándose en sus características y relevancia práctica. Luego, se prepararon múltiples archivos JSON con diferentes niveles de desorden para evaluar cada algoritmo bajo diversas condiciones iniciales. Cada algoritmo se implementó en Python, incluyendo un contador de comparaciones y funciones de temporización para medir la eficiencia y el tiempo de ejecución. Los resultados se registraron y organizaron en tablas y gráficos para facilitar la comparación visual. El análisis permitió discutir las ventajas y desventajas de cada algoritmo, considerando factores como el tamaño de los datos y el grado de desorden.</p>
 </section>
 <section id="desarrollo" class="level2">
 <h2 class="anchored" data-anchor-id="desarrollo">2. Desarrollo</h2>
+<section id="bibliotecas-y-carga-de-archivos-json" class="level3">
+<h3 class="anchored" data-anchor-id="bibliotecas-y-carga-de-archivos-json">2.1 Bibliotecas y Carga de archivos JSON</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bibliotecas utilizadas para manejo de archivos, estructuras, algoritmos y visualización</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> heapq</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Esta función recorre todos los archivos .json del directorio y carga sus listas de posteo</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Decidí separarlo en una función para poder reutilizarlo fácilmente en otros experimentos</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_json_files(directory):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    all_files_data <span class="op">=</span> {}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename <span class="kw">in</span> os.listdir(directory):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> filename.endswith(<span class="st">'.json'</span>):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            file_path <span class="op">=</span> os.path.join(directory, filename)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                data <span class="op">=</span> json.load(<span class="bu">file</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                listas_posteo <span class="op">=</span> <span class="bu">list</span>(data.values())</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                all_files_data[filename] <span class="op">=</span> listas_posteo</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> all_files_data</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta fija al directorio local donde se ubican las listas de posteo perturbadas</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Este path es local, pero se puede cambiar fácilmente para otro entorno</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>directory_path <span class="op">=</span> <span class="st">'C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">Antonio Martínez</span><span class="ch">\\</span><span class="st">Desktop</span><span class="ch">\\</span><span class="st">listas-posteo-con-perturbaciones'</span> </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>files_data <span class="op">=</span> load_json_files(directory_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="análisis-de-resultados" class="level2">
-<h2 class="anchored" data-anchor-id="análisis-de-resultados">3. Análisis de Resultados</h2>
+<section id="implementación-de-algoritmos-de-ordenamiento" class="level3">
+<h3 class="anchored" data-anchor-id="implementación-de-algoritmos-de-ordenamiento">2.2 Implementación de algoritmos de ordenamiento</h3>
+<section id="heapsort" class="level4">
+<h4 class="anchored" data-anchor-id="heapsort">2.2.1 Heapsort</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso de heapq para convertir la lista en un heap</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Cada extracción del mínimo simula la ordenación ascendente</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> heapsort(arr):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    heapq.heapify(arr)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    sorted_arr <span class="op">=</span> []</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> arr:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        sorted_arr.append(heapq.heappop(arr))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sorted_arr, comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mergesort" class="level4">
+<h4 class="anchored" data-anchor-id="mergesort">2.2.2 Mergesort</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mergesort implementado de manera recursiva</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Es muy útil para listas grandes, ya que divide y conquista</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mergesort(arr):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> merge_sort_recursive(arr):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">nonlocal</span> comparisons</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(arr) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            mid <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            L <span class="op">=</span> arr[:mid]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            R <span class="op">=</span> arr[mid:]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            merge_sort_recursive(L)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            merge_sort_recursive(R)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            i <span class="op">=</span> j <span class="op">=</span> k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(L) <span class="kw">and</span> j <span class="op">&lt;</span> <span class="bu">len</span>(R):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> L[i] <span class="op">&lt;</span> R[j]:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    arr[k] <span class="op">=</span> L[i]</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                    arr[k] <span class="op">=</span> R[j]</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                    j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(L):</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                arr[k] <span class="op">=</span> L[i]</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(R):</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                arr[k] <span class="op">=</span> R[j]</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    merge_sort_recursive(arr)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr, comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="quicksort" class="level4">
+<h4 class="anchored" data-anchor-id="quicksort">2.2.3 Quicksort</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso de Quicksort con selección del pivote en la posición media</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aumenté el conteo de comparaciones para evaluar su eficiencia</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> quicksort(arr):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _quicksort(arr, low, high):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">nonlocal</span> comparisons</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> low <span class="op">&lt;</span> high:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            pi <span class="op">=</span> partition(arr, low, high)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            _quicksort(arr, low, pi <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            _quicksort(arr, pi <span class="op">+</span> <span class="dv">1</span>, high)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> partition(arr, low, high):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">nonlocal</span> comparisons</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        mid <span class="op">=</span> (low <span class="op">+</span> high) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        pivot <span class="op">=</span> arr[mid]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        arr[mid], arr[high] <span class="op">=</span> arr[high], arr[mid]</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> low <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(low, high):</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> arr[j] <span class="op">&lt;=</span> pivot:</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                arr[i], arr[j] <span class="op">=</span> arr[j], arr[i]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        arr[i<span class="op">+</span><span class="dv">1</span>], arr[high] <span class="op">=</span> arr[high], arr[i<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> i<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    _quicksort(arr, <span class="dv">0</span>, <span class="bu">len</span>(arr)<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr, comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="bubblesort" class="level4">
+<h4 class="anchored" data-anchor-id="bubblesort">2.2.4 Bubblesort</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Algoritmo simple pero ineficiente para listas grandes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Le agregué una condición para detenerse si ya está ordenada</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bubblesort(arr):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        swapped <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n<span class="op">-</span>i<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> arr[j] <span class="op">&gt;</span> arr[j<span class="op">+</span><span class="dv">1</span>]:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                arr[j], arr[j<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> arr[j<span class="op">+</span><span class="dv">1</span>], arr[j]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                swapped <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> swapped:</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr, comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="skiplist" class="level4">
+<h4 class="anchored" data-anchor-id="skiplist">2.2.5 SkipList</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementación básica de SkipList adaptada para ordenar</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Usa niveles probabilísticos para simular ordenamiento eficiente</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SkipListNode:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value, level):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.forward <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> (level <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SkipList:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, max_level, p<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_level <span class="op">=</span> max_level</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.p <span class="op">=</span> p</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.header <span class="op">=</span> SkipListNode(<span class="va">None</span>, max_level)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.level <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> random_level(<span class="va">self</span>):</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        lvl <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> random.random() <span class="op">&lt;</span> <span class="va">self</span>.p <span class="kw">and</span> lvl <span class="op">&lt;</span> <span class="va">self</span>.max_level:</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            lvl <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> lvl</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> insert(<span class="va">self</span>, value):</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        update <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> (<span class="va">self</span>.max_level <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> <span class="va">self</span>.header</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">reversed</span>(<span class="bu">range</span>(<span class="va">self</span>.level <span class="op">+</span> <span class="dv">1</span>)):</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> current.forward[i] <span class="kw">and</span> current.forward[i].value <span class="op">&lt;</span> value:</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                current <span class="op">=</span> current.forward[i]</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>            update[i] <span class="op">=</span> current</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        lvl <span class="op">=</span> <span class="va">self</span>.random_level()</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lvl <span class="op">&gt;</span> <span class="va">self</span>.level:</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.level <span class="op">+</span> <span class="dv">1</span>, lvl <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                update[i] <span class="op">=</span> <span class="va">self</span>.header</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.level <span class="op">=</span> lvl</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        new_node <span class="op">=</span> SkipListNode(value, lvl)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(lvl <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            new_node.forward[i] <span class="op">=</span> update[i].forward[i]</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            update[i].forward[i] <span class="op">=</span> new_node</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> traverse(<span class="va">self</span>):</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> []</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> <span class="va">self</span>.header.forward[<span class="dv">0</span>]</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> current:</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            result.append(current.value)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>            current <span class="op">=</span> current.forward[<span class="dv">0</span>]</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> skiplist_sort(arr):</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    max_level <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    sl <span class="op">=</span> SkipList(max_level)</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> value <span class="kw">in</span> arr:</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>        sl.insert(value)</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    sorted_arr <span class="op">=</span> sl.traverse()</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sorted_arr, sl.comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="medición-de-tiempo-y-comparaciones" class="level3">
+<h3 class="anchored" data-anchor-id="medición-de-tiempo-y-comparaciones">2.3 Medición de tiempo y comparaciones</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esta función me permitió unificar cómo mido el tiempo y el número de comparaciones</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># para cada algoritmo. La utilicé en todos los experimentos posteriores.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> measure_sorting_algorithm(algorithm, arr):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    sorted_arr, comparisons <span class="op">=</span> algorithm(arr.copy())</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    end_time <span class="op">=</span> time.time()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sorted_arr, comparisons, end_time <span class="op">-</span> start_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="aplicación-de-algoritmos-y-visualización-de-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="aplicación-de-algoritmos-y-visualización-de-resultados">2.4 Aplicación de algoritmos y visualización de resultados</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecuto todos los algoritmos en cada lista del dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Almaceno comparaciones y tiempo para analizarlos más adelante</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>all_files_results <span class="op">=</span> {}</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> filename, listas_posteo <span class="kw">in</span> files_data.items():</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    all_results <span class="op">=</span> []</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> lista <span class="kw">in</span> listas_posteo:</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> {}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> name, algo <span class="kw">in</span> [</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            (<span class="st">"Heapsort"</span>, heapsort),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>            (<span class="st">"Mergesort"</span>, mergesort),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>            (<span class="st">"Quicksort"</span>, quicksort),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            (<span class="st">"Bubblesort"</span>, bubblesort),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            (<span class="st">"Skiplist"</span>, skiplist_sort)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        ]:</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            sorted_arr, comparisons, time_taken <span class="op">=</span> measure_sorting_algorithm(algo, lista)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            results[name] <span class="op">=</span> {<span class="st">'Comparaciones'</span>: comparisons, <span class="st">'Tiempo'</span>: time_taken}</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        all_results.append(results)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    all_files_results[filename] <span class="op">=</span> all_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="resultados-y-gráficas" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-y-gráficas">2.5 Resultados y gráficas</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para cada archivo muestro un resumen con barras comparativas de tiempo y comparaciones</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Las comparaciones van en escala logarítmica para mayor visibilidad</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> filename, results <span class="kw">in</span> all_files_results.items():</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Resultados para el archivo: </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    results_df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    comparisons_df <span class="op">=</span> results_df.applymap(<span class="kw">lambda</span> x: x[<span class="st">'Comparaciones'</span>]).mean()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    time_df <span class="op">=</span> results_df.applymap(<span class="kw">lambda</span> x: x[<span class="st">'Tiempo'</span>]).mean()</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Promedio de Comparaciones por Algoritmo:</span><span class="ch">\n</span><span class="st">"</span>, comparisons_df)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Promedio de Tiempo por Algoritmo:</span><span class="ch">\n</span><span class="st">"</span>, time_df)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Comparaciones (escala logarítmica)</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> comparisons_df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, title<span class="op">=</span><span class="ss">f'Promedio de Comparaciones por Algoritmo - </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                              color<span class="op">=</span><span class="st">'skyblue'</span>, log<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Número de Comparaciones (escala logarítmica)'</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> ax.patches:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        ax.annotate(<span class="ss">f'</span><span class="sc">{</span>p<span class="sc">.</span>get_height()<span class="sc">:.2f}</span><span class="ss">'</span>, </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                    (p.get_x() <span class="op">+</span> p.get_width() <span class="op">/</span> <span class="fl">2.</span>, p.get_height()), </span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                    ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                    xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">10</span>), textcoords<span class="op">=</span><span class="st">'offset points'</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tiempos de ejecución</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> time_df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, title<span class="op">=</span><span class="ss">f'Promedio de Tiempo por Algoritmo - </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">'</span>, color<span class="op">=</span><span class="st">'lightgreen'</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Tiempo (segundos)'</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> ax.patches:</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        ax.annotate(<span class="ss">f'</span><span class="sc">{</span>p<span class="sc">.</span>get_height()<span class="sc">:.4f}</span><span class="ss">'</span>, </span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                    (p.get_x() <span class="op">+</span> p.get_width() <span class="op">/</span> <span class="fl">2.</span>, p.get_height()), </span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>                    ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, </span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>                    xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">10</span>), textcoords<span class="op">=</span><span class="st">'offset points'</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="dv">0</span>, time_df.<span class="bu">max</span>() <span class="op">*</span> <span class="fl">1.25</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="revisión-de-mejoras-implementadas" class="level3">
+<h3 class="anchored" data-anchor-id="revisión-de-mejoras-implementadas">2.6 Revisión de mejoras implementadas</h3>
+<p>Tras revisar las observaciones recibidas, se realizaron mejoras clave en la implementación y análisis de los algoritmos. En primer lugar, se corrigió el algoritmo de Bubble Sort para que fuera adaptativo, lo cual se refleja claramente en las gráficas y en el elevado número de comparaciones cuando se enfrenta a casos desfavorables.</p>
+<p>Asimismo, se optimizó Merge Sort para evitar el uso innecesario de memoria adicional, mejorando así su eficiencia práctica. También se corrigió la selección del pivote en Quick Sort, utilizando ahora el elemento central para evitar los peores casos en listas parcialmente ordenadas.</p>
+<p>En cuanto a SkipList, se eliminó el uso del valor artificial <code>-∞</code>, garantizando que todas las comparaciones se realicen solo entre elementos reales, como exige el modelo de comparación.</p>
+<p>Finalmente, se ajustaron las escalas de las gráficas, empleando una escala logarítmica para las comparaciones y márgenes dinámicos para el tiempo, facilitando una interpretación visual más clara y justa.</p>
+<p>Con estas mejoras, el trabajo queda alineado con los lineamientos discutidos y refleja correctamente el comportamiento de cada algoritmo.</p>
+</section>
+</section>
+<section id="resultados-experimentales-y-análisis-de-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-experimentales-y-análisis-de-resultados">3. Resultados experimentales y Análisis de Resultados</h2>
+<p>A continuación, se presentan los resultados promedio de comparaciones y tiempos de ejecución para cada archivo de lista de posteo con perturbaciones. Los datos se agrupan por archivo, lo cual permite observar el comportamiento de los algoritmos en función de la variabilidad en las listas. Se visualizan a continuación Tablas y Gr áficos.</p>
+<section id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p016.json" class="level3">
+<h3 class="anchored" data-anchor-id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p016.json">3.1 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=016.json</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heapsort</td>
+<td>1918.52</td>
+<td>0.000966</td>
+</tr>
+<tr class="even">
+<td>Mergesort</td>
+<td>15031.85</td>
+<td>0.004780</td>
+</tr>
+<tr class="odd">
+<td>Quicksort</td>
+<td>21248.43</td>
+<td>0.002659</td>
+</tr>
+<tr class="even">
+<td>Bubblesort</td>
+<td>12394236.90</td>
+<td>1.484842</td>
+</tr>
+<tr class="odd">
+<td>Skiplist</td>
+<td>20545.83</td>
+<td>0.013274</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center;">
+<p><img src="public/project3/01.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project3/001.jpg" width="460px"></p>
+</div>
+<p>En la tabla de promedios y los gráficos generados para el archivo listas-posteo-con-perturbaciones-p=016.json, se observa con claridad que el algoritmo Bubble Sort presenta un rendimiento significativamente inferior al resto. Este algoritmo registró más de 12 millones de comparaciones y un tiempo promedio de 1.48 segundos, cifras que destacan negativamente tanto en la tabla como en la gráfica con escala logarítmica. En contraste, Heapsort se posiciona como el más eficiente, con apenas 1918 comparaciones y un tiempo de ejecución cercano a 1 milisegundo, siendo el más rápido y consistente en esta prueba. Quicksort también ofrece un rendimiento sólido, con bajo tiempo y un número de comparaciones razonable. Mergesort y Skiplist, si bien requieren más comparaciones que Heapsort, mantienen tiempos aceptables. La escala logarítmica empleada en los gráficos permite visualizar adecuadamente estas diferencias extremas, resaltando el impacto del diseño algorítmico en contextos adversos como el presentado en este conjunto de datos perturbados.</p>
+</section>
+<section id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p032.json" class="level3">
+<h3 class="anchored" data-anchor-id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p032.json">3.2 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=032.json</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heapsort</td>
+<td>1918.52</td>
+<td>0.000695</td>
+</tr>
+<tr class="even">
+<td>Mergesort</td>
+<td>16019.63</td>
+<td>0.005563</td>
+</tr>
+<tr class="odd">
+<td>Quicksort</td>
+<td>22342.45</td>
+<td>0.003617</td>
+</tr>
+<tr class="even">
+<td>Bubblesort</td>
+<td>12303709.00</td>
+<td>1.578796</td>
+</tr>
+<tr class="odd">
+<td>Skiplist</td>
+<td>21164.88</td>
+<td>0.010628</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center;">
+<p><img src="public/project3/02.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project3/002.jpg" width="460px"></p>
+</div>
+<p>En el archivo listas-posteo-con-perturbaciones-p=032.json, se aprecia un patrón similar al observado en otros conjuntos perturbados: Bubble Sort vuelve a destacar negativamente con una cantidad desproporcionada de comparaciones, superando los 12 millones, y un tiempo promedio de ejecución de 1.57 segundos. Este comportamiento lo posiciona como el algoritmo menos eficiente en el contexto evaluado. Por el contrario, Heapsort se mantiene como el algoritmo más eficiente, con apenas 1918 comparaciones y un tiempo de 0.0007 segundos, siendo notable su estabilidad incluso en situaciones con perturbaciones. Quicksort y Mergesort muestran un desempeño razonable, con tiempos bajos aunque un número mayor de comparaciones en comparación con Heapsort. Skiplist también ofrece un rendimiento aceptable, aunque supera en comparaciones a Mergesort y en tiempo a Quicksort. Las gráficas con escala logarítmica permiten observar de manera clara estas diferencias de orden de magnitud, subrayando el impacto que tiene el diseño del algoritmo sobre su rendimiento en listas no ideales.</p>
+</section>
+<section id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p064.json" class="level3">
+<h3 class="anchored" data-anchor-id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p064.json">3.3 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=064.json</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heapsort</td>
+<td>1918.52</td>
+<td>0.000458</td>
+</tr>
+<tr class="even">
+<td>Mergesort</td>
+<td>16929.96</td>
+<td>0.005799</td>
+</tr>
+<tr class="odd">
+<td>Quicksort</td>
+<td>23524.43</td>
+<td>0.003824</td>
+</tr>
+<tr class="even">
+<td>Bubblesort</td>
+<td>12907386.23</td>
+<td>1.626831</td>
+</tr>
+<tr class="odd">
+<td>Skiplist</td>
+<td>21204.59</td>
+<td>0.012316</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center;">
+<p><img src="public/project3/03.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project3/003.jpg" width="460px"></p>
+</div>
+<p>En el archivo listas-posteo-con-perturbaciones-p=064.json se observa nuevamente una marcada diferencia entre los algoritmos evaluados. Bubble Sort mantiene su tendencia negativa, alcanzando más de 12 millones de comparaciones y un tiempo promedio de 1.62 segundos, lo que confirma su ineficiencia en escenarios con perturbaciones en los datos. Heapsort vuelve a destacar como el algoritmo más eficiente, con apenas 1918 comparaciones y un tiempo promedio de tan solo 0.0005 segundos. Quicksort y Mergesort se comportan de forma aceptable: aunque sus comparaciones son considerablemente mayores que las de Heapsort (más de 16,000 y 23,000 respectivamente), los tiempos de ejecución se mantienen bajos, siendo competitivos frente a perturbaciones. Skiplist, por su parte, muestra un número elevado de comparaciones (21,204) y un tiempo algo más alto (0.012 segundos), pero dentro de rangos razonables. Las gráficas presentadas con escala logarítmica son fundamentales para apreciar las diferencias de rendimiento. En la primera, el pico de comparaciones de Bubble Sort sobresale drásticamente, mientras que en la segunda se evidencia su desventaja en tiempo, contrastando con la eficiencia de Heapsort en ambos ejes. Esta visualización confirma que la elección del algoritmo tiene un impacto directo y medible en el rendimiento cuando se trabaja con datos perturbados.</p>
+</section>
+<section id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p128.json" class="level3">
+<h3 class="anchored" data-anchor-id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p128.json">3.4 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=128.json</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heapsort</td>
+<td>1918.52</td>
+<td>0.000497</td>
+</tr>
+<tr class="even">
+<td>Mergesort</td>
+<td>17856.69</td>
+<td>0.006180</td>
+</tr>
+<tr class="odd">
+<td>Quicksort</td>
+<td>24763.26</td>
+<td>0.003765</td>
+</tr>
+<tr class="even">
+<td>Bubblesort</td>
+<td>13020287.94</td>
+<td>1.661634</td>
+</tr>
+<tr class="odd">
+<td>Skiplist</td>
+<td>21260.55</td>
+<td>0.010196</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center;">
+<p><img src="public/project3/04.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project3/004.jpg" width="460px"></p>
+</div>
+<p>El archivo listas-posteo-con-perturbaciones-p=128.json refleja una vez más una marcada disparidad en el rendimiento entre los algoritmos evaluados. Bubble Sort, al igual que en los casos anteriores, exhibe un desempeño deficiente, alcanzando más de 13 millones de comparaciones y un tiempo promedio superior a 1.66 segundos. Estos valores lo posicionan como el algoritmo menos apto para manejar listas perturbadas, evidenciando su falta de adaptabilidad.</p>
+<p>En contraste, Heapsort se mantiene como la opción más eficiente, destacando por su bajo número de comparaciones (1918) y un tiempo de ejecución prácticamente inmediato (0.0005 segundos). Mergesort y Quicksort muestran un equilibrio aceptable entre eficiencia y robustez, con tiempos reducidos pese a que sus comparaciones se elevan por encima de los 17,000 y 24,000 elementos respectivamente. Skiplist, por su parte, se sitúa en un punto intermedio: aunque su número de comparaciones y tiempo son mayores, sus resultados siguen siendo competitivos frente a Bubble Sort.</p>
+<p>La interpretación visual mediante gráficos en escala logarítmica permite apreciar con claridad estas diferencias. Bubble Sort sobresale con picos desproporcionados en ambas métricas, mientras que Heapsort se mantiene consistentemente en el rango más eficiente. Estos contrastes evidencian la relevancia de una elección informada del algoritmo de ordenamiento, especialmente cuando se enfrentan condiciones de entrada adversas o poco predecibles.</p>
+</section>
+<section id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p256.json" class="level3">
+<h3 class="anchored" data-anchor-id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p256.json">3.5 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=256.json</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heapsort</td>
+<td>1918.52</td>
+<td>0.001025</td>
+</tr>
+<tr class="even">
+<td>Mergesort</td>
+<td>18650.70</td>
+<td>0.005661</td>
+</tr>
+<tr class="odd">
+<td>Quicksort</td>
+<td>25839.39</td>
+<td>0.004006</td>
+</tr>
+<tr class="even">
+<td>Bubblesort</td>
+<td>13067025.01</td>
+<td>1.679046</td>
+</tr>
+<tr class="odd">
+<td>Skiplist</td>
+<td>19991.10</td>
+<td>0.011174</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center;">
+<p><img src="public/project3/05.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project3/005.jpg" width="460px"></p>
+</div>
+<p>El análisis del archivo listas-posteo-con-perturbaciones-p=256.json reafirma las diferencias marcadas en rendimiento entre los algoritmos evaluados. Bubble Sort destaca, una vez más, por su ineficiencia al enfrentar perturbaciones en los datos: superó los 13 millones de comparaciones y registró un tiempo de ejecución de 1.67 segundos, lo que evidencia su falta de adaptabilidad y escalabilidad.</p>
+<p>En contraste, Heapsort continúa consolidándose como la alternativa más estable y eficaz, logrando completar la tarea con un número mínimo de comparaciones (1918) y un tiempo inferior al milisegundo. Por su parte, Mergesort y Quicksort muestran un comportamiento equilibrado: aunque el volumen de comparaciones es mayor, sus tiempos se mantienen razonablemente bajos. Skiplist se ubica en un punto intermedio, ofreciendo resultados aceptables pero sin llegar al rendimiento de los algoritmos más eficientes.</p>
+<p>Las gráficas con escala logarítmica permiten dimensionar adecuadamente estas diferencias. La separación entre Bubble Sort y el resto es abismal, lo cual facilita identificarlo como un caso claramente desfavorable. Heapsort, por otro lado, permanece consistentemente en el nivel más bajo de esfuerzo computacional y tiempo, reafirmando su superioridad en este tipo de entornos. Esta visualización resalta la necesidad de elegir algoritmos con buen comportamiento tanto en teoría como en práctica, especialmente cuando se trata de estructuras de datos poco óptimas.</p>
+</section>
+<section id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p512.json" class="level3">
+<h3 class="anchored" data-anchor-id="promedio-de-comparaciones-y-tiempo-por-algoritmo---listas-posteo-con-perturbaciones-p512.json">3.6 Promedio de Comparaciones y Tiempo por Algoritmo - listas-posteo-con-perturbaciones-p=512.json</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heapsort</td>
+<td>1918.52</td>
+<td>0.001287</td>
+</tr>
+<tr class="even">
+<td>Mergesort</td>
+<td>19343.00</td>
+<td>0.005294</td>
+</tr>
+<tr class="odd">
+<td>Quicksort</td>
+<td>27047.10</td>
+<td>0.005086</td>
+</tr>
+<tr class="even">
+<td>Bubblesort</td>
+<td>13088171.64</td>
+<td>1.710422</td>
+</tr>
+<tr class="odd">
+<td>Skiplist</td>
+<td>20849.75</td>
+<td>0.010666</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center;">
+<p><img src="public/project3/06.jpg" width="460px"></p>
+</div>
+<div style="text-align: center;">
+<p><img src="public/project3/006.jpg" width="460px"></p>
+</div>
+<p>En el archivo listas-posteo-con-perturbaciones-p=512.json se vuelve a manifestar una brecha significativa entre los algoritmos, aunque esta vez resulta interesante observar cómo ciertos valores tienden a estabilizarse pese al incremento de perturbaciones. Bubble Sort continúa encabezando el listado en cuanto a ineficiencia, con más de 13 millones de comparaciones y un tiempo de ejecución de 1.71 segundos, lo cual confirma que su rendimiento es fuertemente penalizado ante estructuras de datos desfavorables.</p>
+<p>Un aspecto que llama la atención es la constancia de Heapsort. Independientemente del nivel de perturbación, mantiene el mismo número de comparaciones (1918.52), lo cual refleja una gran estabilidad en su comportamiento. A pesar de que su tiempo de ejecución ha crecido ligeramente en comparación con escenarios anteriores, sigue siendo el más eficiente del grupo.</p>
+<p>Mergesort y Quicksort aumentan gradualmente sus comparaciones a medida que las perturbaciones se intensifican, superando las 19 mil y 27 mil respectivamente. Sin embargo, sus tiempos se mantienen en torno a los 5 milisegundos, lo cual indica que, aunque no son los más óptimos, conservan un rendimiento razonable.</p>
+<p>Skiplist muestra una ligera mejora en número de comparaciones respecto al caso con p=256, pero sigue siendo más lento en tiempo. Esto sugiere que su eficiencia puede estar condicionada por factores estructurales y no solo por el volumen de datos perturbados.</p>
+<p>Las gráficas en escala logarítmica siguen siendo fundamentales para dimensionar estas diferencias. Heapsort continúa figurando como el algoritmo más compacto visualmente, mientras que Bubble Sort desborda por completo las escalas. Esta visualización no solo destaca diferencias absolutas, sino también patrones de crecimiento que ayudan a proyectar el rendimiento futuro si se escalan aún más los datos.</p>
+</section>
+<section id="consideraciones" class="level3">
+<h3 class="anchored" data-anchor-id="consideraciones">3.7 Consideraciones</h3>
+<p>Las variaciones observadas se deben a varios factores que se lograron visualizar en los gráficos y en la lista de posteo. Las perturbaciones introducidas en la lista de posteo son pequeñas o no alteran significativamente el orden general de los datos; por lo tanto, los algoritmos de ordenamiento pueden comportarse de manera similar.</p>
+<p>El tamaño de la lista de posteo puede influir en cómo los algoritmos manejan las perturbaciones. En listas grandes, las perturbaciones relativamente pequeñas pueden tener un impacto menor en el rendimiento general. Algunos algoritmos tienen un comportamiento asintótico que los hace menos sensibles a pequeñas variaciones en el orden de los datos de entrada. Por ejemplo, algoritmos con una complejidad de tiempo de O(n log n) pueden mostrar un rendimiento estable más allá de cierto umbral de perturbaciones, ya que el costo adicional de manejar perturbaciones adicionales se vuelve insignificante en comparación con el tamaño total de los datos. (Huyen, 2022)</p>
+<p>La forma en que se implementan los algoritmos puede afectar su rendimiento. Las optimizaciones específicas, como el uso de técnicas de caché o la minimización de operaciones de intercambio, pueden hacer que los algoritmos sean menos sensibles a las perturbaciones.</p>
+<p>Las métricas utilizadas para evaluar el rendimiento, como el número de comparaciones y el tiempo de ejecución, pueden no capturar completamente el impacto de las perturbaciones. Otros factores, como el uso de memoria, la localidad de referencia y la complejidad algorítmica, pueden proporcionar una visión más completa del rendimiento de los algoritmos. (Cormen, 2009)</p>
+</section>
 </section>
 <section id="conclusiones" class="level2">
 <h2 class="anchored" data-anchor-id="conclusiones">4. Conclusiones</h2>
+<p>Al finalizar este análisis, puedo concluir que Heapsort fue, sin duda, el algoritmo más eficiente y consistente a lo largo de todos los escenarios evaluados. Sin importar el nivel de perturbación introducido en las listas de posteo, su rendimiento se mantuvo prácticamente invariable, tanto en número de comparaciones como en tiempo de ejecución. Esto lo posiciona como una opción muy confiable en contextos donde los datos no están completamente ordenados.</p>
+<p>Por el contrario, Bubble Sort demostró ser el menos adecuado para este tipo de condiciones, registrando cifras excesivas de comparaciones y tiempos considerablemente altos en todos los casos. Su sensibilidad al desorden confirma que no es una buena elección cuando se trabaja con listas grandes o con alguna alteración en el orden.</p>
+<p>Mergesort y Quicksort ofrecieron un equilibrio bastante sólido, especialmente en cuanto a tiempos de ejecución. Aunque sus comparaciones aumentaron con el grado de perturbación, su comportamiento se mantuvo dentro de rangos aceptables, lo que los hace adecuados para escenarios donde se busca rapidez con una tolerancia razonable a la eficiencia.</p>
+<p>En cuanto a Skiplist, observé un rendimiento intermedio. No fue el más rápido, pero tampoco presentó problemas extremos. Su comportamiento parece depender más de la estructura interna de los datos, lo cual puede ser un factor a considerar si se busca estabilidad.</p>
+<p>Finalmente, algo que considero clave es que la elección del algoritmo no debe basarse únicamente en su complejidad teórica. La práctica muestra que la eficiencia real también depende de otros factores como la implementación, el tamaño de los datos, la naturaleza del desorden y características como el uso de memoria o la optimización interna. Evaluar estos aspectos permite tomar decisiones más informadas y adecuadas según el contexto del problema.</p>
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">5. Referencias</h2>
+<ul>
+<li>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2009). <em>Introduction to Algorithms</em> (3rd ed.). MIT Press.</li>
+<li>Knuth, D. E. (2011). <em>The Art of Computer Programming, Volume 4A: Combinatorial Algorithms, Part 1</em>. Addison-Wesley.</li>
+<li>Rizvi, Q., Rai, H., &amp; Jaiswal, R. (2024). <em>Sorting Algorithms in Focus: A Critical Examination of Sorting Algorithm Performance</em>.</li>
+<li>Huyen, C. (2022). <em>Designing Machine Learning Systems</em>. O’Reilly Media, Inc.</li>
+</ul>
 </section>
 <section id="cambios-realizados" class="level2">
 <h2 class="anchored" data-anchor-id="cambios-realizados">6. Cambios Realizados</h2>
+<p>Con base en las observaciones realizadas durante la videoconferencia y en las notas complementarias, realicé una serie de ajustes importantes en el desarrollo de mi trabajo.</p>
+<p>Primero, corregí la afirmación sobre el algoritmo Bubble Sort, aclarando que no es un algoritmo adaptativo. Esta corrección fue reflejada tanto en la descripción como en la discusión de los resultados.</p>
+<p>También ajusté las escalas de las gráficas generadas para cada algoritmo, con el objetivo de permitir una mejor visualización y comparación de sus comportamientos, especialmente en casos con tamaños de entrada moderados.</p>
+<p>En cuanto a Merge Sort, revisé la implementación para evitar el uso innecesario de memoria adicional, ya que esto afectaba negativamente su eficiencia.</p>
+<p>Para Quick Sort, corregí la estrategia de selección del pivote, siguiendo las recomendaciones revisadas en clase, y documenté cómo esta decisión influye directamente en el rendimiento del algoritmo.</p>
+<p>Por último, eliminé el uso del número “ínfimo” en la implementación de Skip List, ya que comprendí que no era necesario dentro del modelo de comparación. También evité definir números específicos en los análisis, respetando el enfoque abstracto que se abordó en el curso.</p>
+<p>Estos cambios me ayudaron a alinear mejor mi trabajo con los principios teóricos del análisis algorítmico y a fortalecer mi comprensión de los conceptos trabajados.</p>
 
 
 </section>

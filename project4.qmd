@@ -9,11 +9,23 @@ format:
     toc-float: true
 ---
 
-# Proyecto 4
-
-# 4A. 
+# 4A. Reporte escrito. Experimentos y análisis de algoritmos de búsqueda por
+comparación.
 
 ## 1. Introducción
+En la ciencia de la computación, los algoritmos de búsqueda son esenciales para optimizar la eficiencia en la gestión y recuperación de datos. Estos algoritmos permiten localizar elementos específicos dentro de una colección de datos, optimizando el tiempo y los recursos necesarios para dicha tarea. Este informe se centra en la implementación y comparación de varios algoritmos de búsqueda por comparación, con el objetivo de evaluar su rendimiento en cuanto al número de comparaciones y el tiempo de ejecución (Cormen et al., 2009).
+
+Los algoritmos de búsqueda por comparación se basan en la comparación de elementos para encontrar el objetivo deseado. Entre los algoritmos más conocidos se encuentran la búsqueda binaria, la búsqueda secuencial y variantes de búsquedas no acotadas. Su comportamiento depende de la estructura de datos utilizada y de las condiciones de búsqueda (Knuth, 1998).
+
+La búsqueda binaria acotada es una técnica eficiente para encontrar un elemento en un conjunto de datos ordenado. Este algoritmo divide repetidamente el conjunto de datos a la mitad, comparando el elemento objetivo con el elemento central del subconjunto actual. Si el elemento central es igual al objetivo, la búsqueda termina. Si es mayor o menor, la búsqueda continúa en la mitad inferior o superior, respectivamente. Esta técnica es altamente eficiente en conjuntos de datos ordenados, reduciendo significativamente el número de comparaciones necesarias (Cormen et al., 2009).
+
+La búsqueda secuencial, también conocida como búsqueda lineal, es un método simple y directo para encontrar un elemento en un conjunto de datos. El algoritmo recorre cada elemento del conjunto en orden secuencial, comparando cada uno con el elemento objetivo hasta encontrarlo o llegar al final. Aunque es menos eficiente que la búsqueda binaria en conjuntos ordenados, su aplicabilidad se extiende a cualquier tipo de conjunto, ordenado o no. Las variantes de búsqueda no acotada, como B1 y B2, extienden este concepto para manejar conjuntos de datos cuyo tamaño es desconocido o cambia constantemente (Sedgewick, 2011).
+
+Las SkipLists son estructuras de datos probabilísticas que permiten búsquedas eficientes en conjuntos de datos ordenados. A diferencia de las listas enlazadas tradicionales, las SkipLists utilizan múltiples niveles de enlaces para acelerar el proceso de búsqueda. Esta estructura ofrece eficiencia en búsquedas sobre conjuntos ordenados y una mayor flexibilidad. Sin embargo, su desventaja radica en el uso adicional de memoria debido a los múltiples niveles de enlaces (Knuth, 1998).
+
+En este trabajo se implementaron y compararon cuatro algoritmos de búsqueda: búsqueda binaria acotada, búsqueda secuencial y dos variantes de búsqueda no acotada (B1 y B2), además de la estructura de datos SkipList, con el fin de evaluar su eficiencia en términos de número de comparaciones y tiempo de ejecución. Utilizando conjuntos de datos y consultas específicas, se midió el rendimiento de cada método, registrando los resultados para cada combinación de archivos. Los resultados se visualizaron mediante gráficos y tablas, destacando las ventajas y desventajas de cada enfoque.
+
+Se concluye que la elección del método de búsqueda depende del contexto de aplicación. Este análisis proporciona una guía útil para seleccionar el método más adecuado según los requerimientos específicos de rendimiento y aplicabilidad práctica.
 
 
 ## 2. Desarrollo
@@ -26,6 +38,19 @@ format:
 
 
 ## 5. Referencias
+- Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). *Introduction to Algorithms* (3rd ed.).
+- Sedgewick, R., & Wayne, K. (2011). *Algorithms* (4th ed.).
+- Knuth, D. E. (1998). *The Art of Computer Programming, Volume 3: Sorting and Searching* (2nd ed.).
+- Weiss, M. A. (2014). *Data Structures and Algorithm Analysis in C* (3rd ed.). Pearson.
 
 
 ## 6. Cambios Realizados
+En atención a la retroalimentación recibida, se realizó una revisión profunda del enfoque adoptado en la implementación de los algoritmos de búsqueda por comparación. A continuación se detallan los ajustes conceptuales y técnicos aplicados:
+
+- Se reconoció que el uso de listas de posteo con perturbaciones generó una interpretación errónea del problema, llevando a implementar algoritmos basados únicamente en igualdad, cuando el problema central requería considerar comparaciones con operadores `<` o `<=` para determinar la posición de inserción.
+
+- Se reformularon los algoritmos de búsqueda secuencial y binaria considerando adecuadamente la semántica del problema, que implica la ubicación correcta en listas ordenadas, no la coincidencia exacta.
+
+- Se revisaron las notas del curso y el artículo de Baeza-Yates (B&Y), lo que permitió entender con mayor claridad el modelo de comparación y sus implicaciones para el diseño e interpretación correcta de los algoritmos.
+
+- Se corrigieron errores lógicos en las funciones de búsqueda y se realizaron pruebas con datos estructurados correctamente, evitando distorsiones generadas por entradas mal definidas.
