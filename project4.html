@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -133,12 +168,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de Contenido</h2>
    
   <ul>
-  <li><a href="#proyecto-4" id="toc-proyecto-4" class="nav-link active" data-scroll-target="#proyecto-4">Proyecto 4</a></li>
-  <li><a href="#a." id="toc-a." class="nav-link" data-scroll-target="#a.">4A.</a>
+  <li><a href="#a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-búsqueda-por-comparación." id="toc-a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-búsqueda-por-comparación." class="nav-link active" data-scroll-target="#a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-búsqueda-por-comparación.">4A. Reporte escrito. Experimentos y análisis de algoritmos de búsqueda por comparación.</a>
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a></li>
-  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a></li>
-  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a>
+  <ul>
+  <li><a href="#bibliotecas-utilizadas-y-carga-de-archivos" id="toc-bibliotecas-utilizadas-y-carga-de-archivos" class="nav-link" data-scroll-target="#bibliotecas-utilizadas-y-carga-de-archivos">2.1 Bibliotecas utilizadas y carga de archivos</a></li>
+  <li><a href="#algoritmos-de-búsqueda" id="toc-algoritmos-de-búsqueda" class="nav-link" data-scroll-target="#algoritmos-de-búsqueda">2.2 Algoritmos de búsqueda</a></li>
+  <li><a href="#ejecución-experimental" id="toc-ejecución-experimental" class="nav-link" data-scroll-target="#ejecución-experimental">2.3 Ejecución experimental</a></li>
+  <li><a href="#visualizacion-de-resutados" id="toc-visualizacion-de-resutados" class="nav-link" data-scroll-target="#visualizacion-de-resutados">2.4 Visualizacion de Resutados</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a>
+  <ul>
+  <li><a href="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-1-listas-posteo.json" id="toc-evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-1-listas-posteo.json" class="nav-link" data-scroll-target="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-1-listas-posteo.json">3.1 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-1-listas-posteo.json)</a></li>
+  <li><a href="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-2-listas-posteo.json" id="toc-evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-2-listas-posteo.json" class="nav-link" data-scroll-target="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-2-listas-posteo.json">3.2 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-2-listas-posteo.json)</a></li>
+  <li><a href="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-3-listas-posteo.json" id="toc-evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-3-listas-posteo.json" class="nav-link" data-scroll-target="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-3-listas-posteo.json">3.3 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-3-listas-posteo.json)</a></li>
+  <li><a href="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-4-listas-posteo.json" id="toc-evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-4-listas-posteo.json" class="nav-link" data-scroll-target="#evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-4-listas-posteo.json">3.4 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-4-listas-posteo.json)</a></li>
+  <li><a href="#comparación-de-rendimiento-por-algoritmo-y-lista-promedio-general" id="toc-comparación-de-rendimiento-por-algoritmo-y-lista-promedio-general" class="nav-link" data-scroll-target="#comparación-de-rendimiento-por-algoritmo-y-lista-promedio-general">3.5 Comparación de Rendimiento por Algoritmo y Lista (Promedio General)</a>
+  <ul class="collapse">
+  <li><a href="#promedio-por-consulta-y-algoritmo" id="toc-promedio-por-consulta-y-algoritmo" class="nav-link" data-scroll-target="#promedio-por-consulta-y-algoritmo">3.5.1 Promedio por Consulta y Algoritmo</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">5. Referencias</a></li>
   <li><a href="#cambios-realizados" id="toc-cambios-realizados" class="nav-link" data-scroll-target="#cambios-realizados">6. Cambios Realizados</a></li>
@@ -168,28 +218,457 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="proyecto-4" class="level1">
-<h1>Proyecto 4</h1>
-</section>
-<section id="a." class="level1">
-<h1>4A.</h1>
+<section id="a.-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-búsqueda-por-comparación." class="level1">
+<h1>4A. Reporte escrito. Experimentos y análisis de algoritmos de búsqueda por comparación.</h1>
 <section id="introducción" class="level2">
 <h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>En la ciencia de la computación, los algoritmos de búsqueda son esenciales para optimizar la eficiencia en la gestión y recuperación de datos. Estos algoritmos permiten localizar elementos específicos dentro de una colección de datos, optimizando el tiempo y los recursos necesarios para dicha tarea. Este informe se centra en la implementación y comparación de varios algoritmos de búsqueda por comparación, con el objetivo de evaluar su rendimiento en cuanto al número de comparaciones y el tiempo de ejecución (Cormen et al., 2009).</p>
+<p>Los algoritmos de búsqueda por comparación se basan en la comparación de elementos para encontrar el objetivo deseado. Entre los algoritmos más conocidos se encuentran la búsqueda binaria, la búsqueda secuencial y variantes de búsquedas no acotadas. Su comportamiento depende de la estructura de datos utilizada y de las condiciones de búsqueda (Knuth, 1998).</p>
+<p>La búsqueda binaria acotada es una técnica eficiente para encontrar un elemento en un conjunto de datos ordenado. Este algoritmo divide repetidamente el conjunto de datos a la mitad, comparando el elemento objetivo con el elemento central del subconjunto actual. Si el elemento central es igual al objetivo, la búsqueda termina. Si es mayor o menor, la búsqueda continúa en la mitad inferior o superior, respectivamente. Esta técnica es altamente eficiente en conjuntos de datos ordenados, reduciendo significativamente el número de comparaciones necesarias (Cormen et al., 2009).</p>
+<p>La búsqueda secuencial, también conocida como búsqueda lineal, es un método simple y directo para encontrar un elemento en un conjunto de datos. El algoritmo recorre cada elemento del conjunto en orden secuencial, comparando cada uno con el elemento objetivo hasta encontrarlo o llegar al final. Aunque es menos eficiente que la búsqueda binaria en conjuntos ordenados, su aplicabilidad se extiende a cualquier tipo de conjunto, ordenado o no. Las variantes de búsqueda no acotada, como B1 y B2, extienden este concepto para manejar conjuntos de datos cuyo tamaño es desconocido o cambia constantemente (Sedgewick, 2011).</p>
+<p>Las SkipLists son estructuras de datos probabilísticas que permiten búsquedas eficientes en conjuntos de datos ordenados. A diferencia de las listas enlazadas tradicionales, las SkipLists utilizan múltiples niveles de enlaces para acelerar el proceso de búsqueda. Esta estructura ofrece eficiencia en búsquedas sobre conjuntos ordenados y una mayor flexibilidad. Sin embargo, su desventaja radica en el uso adicional de memoria debido a los múltiples niveles de enlaces (Knuth, 1998).</p>
+<p>En este trabajo se implementaron y compararon cuatro algoritmos de búsqueda: búsqueda binaria acotada, búsqueda secuencial y dos variantes de búsqueda no acotada (B1 y B2), además de la estructura de datos SkipList, con el fin de evaluar su eficiencia en términos de número de comparaciones y tiempo de ejecución. Utilizando conjuntos de datos y consultas específicas, se midió el rendimiento de cada método, registrando los resultados para cada combinación de archivos. Los resultados se visualizaron mediante gráficos y tablas, destacando las ventajas y desventajas de cada enfoque.</p>
+<p>Se concluye que la elección del método de búsqueda depende del contexto de aplicación. Este análisis proporciona una guía útil para seleccionar el método más adecuado según los requerimientos específicos de rendimiento y aplicabilidad práctica.</p>
 </section>
 <section id="desarrollo" class="level2">
 <h2 class="anchored" data-anchor-id="desarrollo">2. Desarrollo</h2>
+<section id="bibliotecas-utilizadas-y-carga-de-archivos" class="level3">
+<h3 class="anchored" data-anchor-id="bibliotecas-utilizadas-y-carga-de-archivos">2.1 Bibliotecas utilizadas y carga de archivos</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bibliotecas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bisect</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List, Tuple, Callable</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta base donde se encuentran los archivos JSON</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ruta_archivos <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="dv">\A</span><span class="vs">ntonio Martínez</span><span class="dv">\D</span><span class="vs">esktop</span><span class="er">\</span><span class="vs">listas-posteo-con-perturbaciones"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Archivos que contienen las listas de posteo (perturbadas)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>listas_archivos <span class="op">=</span> [</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"listas-posteo-con-perturbaciones-p=016.json"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"listas-posteo-con-perturbaciones-p=032.json"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"listas-posteo-con-perturbaciones-p=064.json"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"listas-posteo-con-perturbaciones-p=128.json"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"listas-posteo-con-perturbaciones-p=256.json"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"listas-posteo-con-perturbaciones-p=512.json"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Archivos que contienen las consultas</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>consultas_archivos <span class="op">=</span> [</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"consultas-1-listas-posteo.json"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"consultas-2-listas-posteo.json"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"consultas-3-listas-posteo.json"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"consultas-4-listas-posteo.json"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para cargar listas o diccionarios con listas desde archivo JSON</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cargar_lista_filtrada(path):</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(path) <span class="im">as</span> f:</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            datos <span class="op">=</span> json.load(f)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(datos, <span class="bu">dict</span>):</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>            combinados <span class="op">=</span> []</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> v <span class="kw">in</span> datos.values():</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">isinstance</span>(v, <span class="bu">list</span>):</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>                    combinados.extend(<span class="bu">int</span>(x) <span class="cf">for</span> x <span class="kw">in</span> v <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">int</span>) <span class="kw">or</span> (<span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="kw">and</span> x.isdigit()))</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">sorted</span>(combinados)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">isinstance</span>(datos, <span class="bu">list</span>):</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">sorted</span>([<span class="bu">int</span>(x) <span class="cf">for</span> x <span class="kw">in</span> datos <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">int</span>) <span class="kw">or</span> (<span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="kw">and</span> x.isdigit())])</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> []</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error al leer </span><span class="sc">{</span>path<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="algoritmos-de-búsqueda" class="level3">
+<h3 class="anchored" data-anchor-id="algoritmos-de-búsqueda">2.2 Algoritmos de búsqueda</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda secuencial</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sequential_search_B0(lst: List[<span class="bu">int</span>], x: <span class="bu">int</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">int</span>, <span class="bu">int</span>]:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, item <span class="kw">in</span> <span class="bu">enumerate</span>(lst):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">&lt;=</span> item:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> i, comparisons</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(lst), comparisons</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda binaria clásica</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binary_search(lst: List[<span class="bu">int</span>], x: <span class="bu">int</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">int</span>, <span class="bu">int</span>]:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    left, right <span class="op">=</span> <span class="dv">0</span>, <span class="bu">len</span>(lst)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> left <span class="op">&lt;</span> right:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        mid <span class="op">=</span> (left <span class="op">+</span> right) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">&lt;=</span> lst[mid]:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            right <span class="op">=</span> mid</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> left, comparisons</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda no acotada B1: dobla el límite exponencialmente</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unbounded_search_B1(lst: List[<span class="bu">int</span>], x: <span class="bu">int</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">int</span>, <span class="bu">int</span>]:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(lst)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span>, comparisons</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    bound <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> bound <span class="op">&lt;</span> n <span class="kw">and</span> lst[bound] <span class="op">&lt;</span> x:</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        bound <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    left <span class="op">=</span> bound <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    right <span class="op">=</span> <span class="bu">min</span>(bound, n)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> left <span class="op">&lt;</span> right:</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        mid <span class="op">=</span> (left <span class="op">+</span> right) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        comparisons <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">&lt;=</span> lst[mid]:</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>            right <span class="op">=</span> mid</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> left, comparisons</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda no acotada B2: misma implementación que B1</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unbounded_search_B2(lst: List[<span class="bu">int</span>], x: <span class="bu">int</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">int</span>, <span class="bu">int</span>]:</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> unbounded_search_B1(lst, x)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda tipo SkipList (uso de bisect)</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> skiplist_search(lst: List[<span class="bu">int</span>], x: <span class="bu">int</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">int</span>, <span class="bu">int</span>]:</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    comparisons <span class="op">=</span> <span class="bu">int</span>.bit_length(<span class="bu">len</span>(lst)) <span class="cf">if</span> <span class="bu">len</span>(lst) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> bisect.bisect_left(lst, x)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pos, comparisons</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de algoritmos y sus funciones</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>algorithms: List[Tuple[<span class="bu">str</span>, Callable[[List[<span class="bu">int</span>], <span class="bu">int</span>], Tuple[<span class="bu">int</span>, <span class="bu">int</span>]]]] <span class="op">=</span> [</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B0"</span>, sequential_search_B0),</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Binaria"</span>, binary_search),</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B1"</span>, unbounded_search_B1),</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"B2"</span>, unbounded_search_B2),</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"SkipList"</span>, skiplist_search),</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ejecución-experimental" class="level3">
+<h3 class="anchored" data-anchor-id="ejecución-experimental">2.3 Ejecución experimental</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Verificando contenido de archivos JSON...</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>posting_lists <span class="op">=</span> [cargar_lista_filtrada(os.path.join(ruta_archivos, f)) <span class="cf">for</span> f <span class="kw">in</span> listas_archivos]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>query_sets <span class="op">=</span> [cargar_lista_filtrada(os.path.join(ruta_archivos, f)) <span class="cf">for</span> f <span class="kw">in</span> consultas_archivos]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f, lst <span class="kw">in</span> <span class="bu">zip</span>(listas_archivos, posting_lists):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>f<span class="sc">}</span><span class="ss"> → </span><span class="sc">{</span><span class="bu">len</span>(lst)<span class="sc">}</span><span class="ss"> elementos"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f, q <span class="kw">in</span> <span class="bu">zip</span>(consultas_archivos, query_sets):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>f<span class="sc">}</span><span class="ss"> → </span><span class="sc">{</span><span class="bu">len</span>(q)<span class="sc">}</span><span class="ss"> consultas"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> list_name, plist <span class="kw">in</span> <span class="bu">zip</span>(listas_archivos, posting_lists):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> query_name, queries <span class="kw">in</span> <span class="bu">zip</span>(consultas_archivos, query_sets):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> alg_name, alg_func <span class="kw">in</span> algorithms:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> plist <span class="kw">or</span> <span class="kw">not</span> queries:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                results.append({</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Lista"</span>: list_name,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Consulta"</span>: query_name,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Algoritmo"</span>: alg_name,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Comparaciones"</span>: <span class="dv">0</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Tiempo"</span>: <span class="fl">0.0</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                })</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            total_comparisons <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            start <span class="op">=</span> time.perf_counter()</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> q <span class="kw">in</span> queries:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                _, comps <span class="op">=</span> alg_func(plist, q)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                total_comparisons <span class="op">+=</span> comps</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            end <span class="op">=</span> time.perf_counter()</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            results.append({</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Lista"</span>: list_name,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Consulta"</span>: query_name,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Algoritmo"</span>: alg_name,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Comparaciones"</span>: total_comparisons,</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Tiempo"</span>: <span class="bu">round</span>(end <span class="op">-</span> start, <span class="dv">6</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            })</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"resultados_busqueda.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualizacion-de-resutados" class="level3">
+<h3 class="anchored" data-anchor-id="visualizacion-de-resutados">2.4 Visualizacion de Resutados</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df[<span class="st">"Comparaciones"</span>].<span class="bu">sum</span>() <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    sns.barplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"Algoritmo"</span>, y<span class="op">=</span><span class="st">"Comparaciones"</span>, hue<span class="op">=</span><span class="st">"Lista"</span>, errorbar<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    plt.yscale(<span class="st">"log"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Comparaciones por Algoritmo y Lista (escala logarítmica)"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    sns.barplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"Algoritmo"</span>, y<span class="op">=</span><span class="st">"Tiempo"</span>, hue<span class="op">=</span><span class="st">"Lista"</span>, errorbar<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    plt.yscale(<span class="st">"log"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Tiempo por Algoritmo y Lista (escala logarítmica)"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> consulta <span class="kw">in</span> df[<span class="st">"Consulta"</span>].unique():</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        subset <span class="op">=</span> df[df[<span class="st">"Consulta"</span>] <span class="op">==</span> consulta]</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        sns.barplot(data<span class="op">=</span>subset, x<span class="op">=</span><span class="st">"Algoritmo"</span>, y<span class="op">=</span><span class="st">"Comparaciones"</span>, hue<span class="op">=</span><span class="st">"Lista"</span>, errorbar<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        plt.yscale(<span class="st">"log"</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="ss">f"Comparaciones por Algoritmo (Consulta: </span><span class="sc">{</span>consulta<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        plt.show()</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        sns.barplot(data<span class="op">=</span>subset, x<span class="op">=</span><span class="st">"Algoritmo"</span>, y<span class="op">=</span><span class="st">"Tiempo"</span>, hue<span class="op">=</span><span class="st">"Lista"</span>, errorbar<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        plt.yscale(<span class="st">"log"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="ss">f"Tiempo por Algoritmo (Consulta: </span><span class="sc">{</span>consulta<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        plt.show()</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    promedios_consulta <span class="op">=</span> df.groupby([<span class="st">"Consulta"</span>, <span class="st">"Algoritmo"</span>], as_index<span class="op">=</span><span class="va">False</span>)[[<span class="st">"Comparaciones"</span>, <span class="st">"Tiempo"</span>]].mean()</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    display(promedios_consulta)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    promedios_consulta.to_csv(<span class="st">"promedios_por_consulta.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"No se registraron comparaciones. Verifica el contenido de tus archivos."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="análisis-de-resultados" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-resultados">3. Análisis de Resultados</h2>
+<section id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-1-listas-posteo.json" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-1-listas-posteo.json">3.1 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-1-listas-posteo.json)</h3>
+<div style="text-align: center;">
+<p><img src="public/project4/01.jpg" width="560px"></p>
+</div>
+<p>En el gráfico se observa el número de comparaciones promedio realizadas por cada algoritmo al ejecutar la consulta consultas-1-listas-posteo.json sobre distintas listas de posteo con perturbaciones. Se evidencia claramente que el algoritmo B0 (búsqueda secuencial) es extremadamente ineficiente, realizando más de 3 millones de comparaciones en todos los casos. Esta ineficiencia se mantiene constante independientemente del nivel de perturbación, lo cual refleja su incapacidad de adaptarse a estructuras parcialmente ordenadas. Por otro lado, los algoritmos Binaria, B1 y B2 muestran un comportamiento mucho más eficiente, con un número de comparaciones considerablemente menor (del orden de cientos de miles o menos), además de una gran estabilidad frente a las distintas listas perturbadas. El algoritmo SkipList, aunque ligeramente más constante en su conteo (180,000 en promedio), mantiene un rendimiento intermedio en términos de comparaciones, destacándose por su regularidad.</p>
+<div style="text-align: center;">
+<p><img src="public/project4/001.jpg" width="560px"></p>
+</div>
+<p>En el gráfico también se presenta el tiempo promedio de ejecución por algoritmo bajo el mismo escenario. Nuevamente, B0 muestra un tiempo elevado, aunque menos extremo que su número de comparaciones, lo que puede deberse a la simplicidad de su implementación. En cambio, Binaria refleja tiempos de ejecución más altos en relación con B1 y B2, pese a que las comparaciones eran similares o incluso menores, lo cual sugiere que la sobrecarga de su implementación o la forma en que accede a los datos puede afectar su eficiencia temporal. En cuanto a B1 y B2, ambos logran tiempos bajos y bastante consistentes, consolidándose como las alternativas más eficientes tanto en comparaciones como en tiempo. Finalmente, SkipList, aunque no es el más veloz, sí mantiene un tiempo de ejecución muy competitivo y constante, reafirmando su ventaja en estabilidad de desempeño.</p>
+</section>
+<section id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-2-listas-posteo.json" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-2-listas-posteo.json">3.2 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-2-listas-posteo.json)</h3>
+<div style="text-align: center;">
+<p><img src="public/project4/02.jpg" width="560px"></p>
+</div>
+<p>En el gráfico de comparaciones correspondiente a la consulta <code>consultas-2-listas-posteo.json</code>, se observa que el algoritmo B0 sigue siendo el menos eficiente, superando los 5 millones de comparaciones en todos los casos. Este comportamiento se mantiene constante sin importar el nivel de perturbación en las listas, lo cual evidencia que la búsqueda secuencial no aprovecha el orden parcial de los datos. Por otro lado, los algoritmos Binaria, B1 y B2 presentan un rendimiento mucho más eficiente, con un número de comparaciones cercano a los 170,000, y una variación mínima entre las distintas listas perturbadas. SkipList también muestra un comportamiento constante y predecible, con 180,000 comparaciones en promedio, lo que refuerza su estabilidad.</p>
+<div style="text-align: center;">
+<p><img src="public/project4/002.jpg" width="560px"></p>
+</div>
+<p>Respecto al gráfico de tiempo, nuevamente se observa que B0 tiene un tiempo de ejecución considerablemente superior al del resto de los algoritmos. Binaria mejora notablemente frente a B0, aunque sigue siendo superada por B1, B2 y SkipList en términos de rapidez. B1 y B2 obtienen los tiempos más bajos, cercanos a 1 × 10⁻² segundos, y se comportan de manera uniforme frente a distintas listas. SkipList, por su parte, mantiene los tiempos más reducidos, alrededor de 6 × 10⁻³ segundos, lo cual refuerza su eficiencia y lo posiciona como una alternativa sólida frente a perturbaciones en los datos.</p>
+</section>
+<section id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-3-listas-posteo.json" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-3-listas-posteo.json">3.3 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-3-listas-posteo.json)</h3>
+<div style="text-align: center;">
+<p><img src="public/project4/03.jpg" width="560px"></p>
+</div>
+<p>El gráfico de comparaciones corresponde a la ejecución de la consulta consultas-3-listas-posteo.json sobre distintas listas de posteo con perturbaciones. En él se observa que el algoritmo B0 vuelve a mostrar un rendimiento extremadamente pobre, realizando más de 10⁸ comparaciones de forma constante, independientemente del nivel de perturbación en los datos. Esto refuerza su incapacidad de aprovechar cualquier tipo de orden o estructura parcial. Por otro lado, los algoritmos Binaria, B1 y B2 presentan un comportamiento mucho más eficiente y estable, con comparaciones en el orden de 2.5 × 10⁵ aproximadamente, sin verse afectados por las variaciones en las listas. SkipList también mantiene su consistencia, con un promedio de 180,000 comparaciones en todos los casos.</p>
+<div style="text-align: center;">
+<p><img src="public/project4/003.jpg" width="560px"></p>
+</div>
+<p>En cuanto al gráfico de tiempos, también asociado a la consulta consultas-3-listas-posteo.json, B0 registra los valores más altos, superando los 7 segundos para cada lista analizada. Aunque Binaria mejora considerablemente frente a B0, sus tiempos siguen siendo más elevados que los de B1 y B2, los cuales se mantienen en torno a los 0.03 segundos, con gran estabilidad entre listas. SkipList se destaca nuevamente como el algoritmo más rápido, con tiempos cercanos a los 0.007 segundos, consolidando su eficiencia tanto en tiempo como en número de comparaciones.</p>
+</section>
+<section id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-4-listas-posteo.json" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-de-algoritmos-por-comparaciones-y-tiempo-frente-a-perturbaciones-consulta-fija-consultas-4-listas-posteo.json">3.4 Evaluación de Algoritmos por Comparaciones y Tiempo frente a Perturbaciones (Consulta Fija: consultas-4-listas-posteo.json)</h3>
+<div style="text-align: center;">
+<p><img src="public/project4/04.jpg" width="560px"></p>
+</div>
+<p>En el gráfico de comparaciones para la consulta <code>consultas-4-listas-posteo.json</code>, el algoritmo B0 vuelve a mostrar un rendimiento extremadamente ineficiente, superando los 9.8 × 10⁸ comparaciones en todos los casos, lo cual lo convierte en el peor evaluado sin importar el nivel de perturbación en las listas. Su comportamiento completamente lineal y sin capacidad de aprovechar el orden lo vuelve inviable para estructuras parcialmente ordenadas. Por el contrario, los algoritmos Binaria, B1 y B2 mantienen un número de comparaciones muy bajo y estable, con valores cercanos a 170,000 y 320,000 dependiendo de la técnica empleada, lo cual demuestra su eficiencia y adaptabilidad. El algoritmo SkipList, nuevamente, se mantiene firme con aproximadamente 180,000 comparaciones, reflejando un buen balance entre consistencia y rendimiento.</p>
+<div style="text-align: center;">
+<p><img src="public/project4/004.jpg" width="560px"></p>
+</div>
+<p>En el gráfico de tiempo para la misma consulta, B0 también presenta un tiempo de ejecución excesivo, cercano a los 96.8 segundos, lo que reafirma su ineficiencia total. Binaria mejora sustancialmente en comparación, con tiempos en torno a los 0.03 segundos, pero aún se ve superada por B1 y B2, que se ejecutan en alrededor de 0.045 segundos con mucha regularidad. SkipList destaca nuevamente con el mejor tiempo de todos, alrededor de 0.008 segundos, confirmando su capacidad de mantener bajo el tiempo de respuesta incluso frente a altos niveles de perturbación.</p>
+</section>
+<section id="comparación-de-rendimiento-por-algoritmo-y-lista-promedio-general" class="level3">
+<h3 class="anchored" data-anchor-id="comparación-de-rendimiento-por-algoritmo-y-lista-promedio-general">3.5 Comparación de Rendimiento por Algoritmo y Lista (Promedio General)</h3>
+<div style="text-align: center;">
+<p><img src="public/project4/00.jpg" width="560px"></p>
+</div>
+<p>El gráfico de comparaciones evidencia que el algoritmo B0 es, con diferencia, el menos eficiente frente a todos los niveles de perturbación. En todos los casos, supera consistentemente las 10⁷ comparaciones, lo que demuestra su incapacidad para aprovechar el orden parcial en las listas de posteo. Esta falta de adaptabilidad lo hace inadecuado incluso cuando las perturbaciones son mínimas. Por el contrario, los algoritmos Binaria, B1, B2 y SkipList mantienen un comportamiento muy estable, con comparaciones que oscilan entre 10⁵ y 10⁶, sin mostrar una sensibilidad significativa al aumento de perturbación en los datos. Esto refleja que estos métodos sí aprovechan la estructura de las listas, independientemente del nivel de desorden.</p>
+<div style="text-align: center;">
+<p><img src="public/project4/000.jpg" width="560px"></p>
+</div>
+<p>En el gráfico de tiempo, B0 nuevamente destaca por su alto costo computacional, con tiempos superiores a 10⁰ segundos, muy por encima del resto. Aunque Binaria mejora en eficiencia temporal, sigue siendo superada por B1, B2 y SkipList, que muestran tiempos por debajo de 10⁻² segundos. Este patrón se mantiene estable a lo largo de todas las listas evaluadas, lo cual indica que estos tres algoritmos no solo son más rápidos, sino también más consistentes y escalables cuando se enfrentan a datos perturbados. En particular, SkipList sobresale por mantener los tiempos más bajos del conjunto, reafirmando su eficiencia general.</p>
+<section id="promedio-por-consulta-y-algoritmo" class="level4">
+<h4 class="anchored" data-anchor-id="promedio-por-consulta-y-algoritmo">3.5.1 Promedio por Consulta y Algoritmo</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Consulta</th>
+<th>Algoritmo</th>
+<th>Comparaciones</th>
+<th>Tiempo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>consultas-1-listas-posteo.json</td>
+<td>B0</td>
+<td>295284.0</td>
+<td>0.021119 s</td>
+</tr>
+<tr class="even">
+<td>consultas-1-listas-posteo.json</td>
+<td>B1</td>
+<td>85296.0</td>
+<td>0.014033 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-1-listas-posteo.json</td>
+<td>B2</td>
+<td>85296.0</td>
+<td>0.013316 s</td>
+</tr>
+<tr class="even">
+<td>consultas-1-listas-posteo.json</td>
+<td>Binaria</td>
+<td>176297.0</td>
+<td>0.025725 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-1-listas-posteo.json</td>
+<td>SkipList</td>
+<td>180000.0</td>
+<td>0.006500 s</td>
+</tr>
+<tr class="even">
+<td>consultas-2-listas-posteo.json</td>
+<td>B0</td>
+<td>5035401.0</td>
+<td>0.389143 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-2-listas-posteo.json</td>
+<td>B1</td>
+<td>169318.0</td>
+<td>0.022207 s</td>
+</tr>
+<tr class="even">
+<td>consultas-2-listas-posteo.json</td>
+<td>B2</td>
+<td>169318.0</td>
+<td>0.022952 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-2-listas-posteo.json</td>
+<td>Binaria</td>
+<td>176827.0</td>
+<td>0.025777 s</td>
+</tr>
+<tr class="even">
+<td>consultas-2-listas-posteo.json</td>
+<td>SkipList</td>
+<td>180000.0</td>
+<td>0.006478 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-3-listas-posteo.json</td>
+<td>B0</td>
+<td>75757269.0</td>
+<td>7.030850 s</td>
+</tr>
+<tr class="even">
+<td>consultas-3-listas-posteo.json</td>
+<td>B1</td>
+<td>248473.0</td>
+<td>0.033025 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-3-listas-posteo.json</td>
+<td>B2</td>
+<td>248473.0</td>
+<td>0.034482 s</td>
+</tr>
+<tr class="even">
+<td>consultas-3-listas-posteo.json</td>
+<td>Binaria</td>
+<td>176385.0</td>
+<td>0.028948 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-3-listas-posteo.json</td>
+<td>SkipList</td>
+<td>180000.0</td>
+<td>0.007197 s</td>
+</tr>
+<tr class="even">
+<td>consultas-4-listas-posteo.json</td>
+<td>B0</td>
+<td>988162924.0</td>
+<td>96.788158 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-4-listas-posteo.json</td>
+<td>B1</td>
+<td>320738.0</td>
+<td>0.044221 s</td>
+</tr>
+<tr class="even">
+<td>consultas-4-listas-posteo.json</td>
+<td>B2</td>
+<td>320738.0</td>
+<td>0.045158 s</td>
+</tr>
+<tr class="odd">
+<td>consultas-4-listas-posteo.json</td>
+<td>Binaria</td>
+<td>176355.0</td>
+<td>0.032268 s</td>
+</tr>
+<tr class="even">
+<td>consultas-4-listas-posteo.json</td>
+<td>SkipList</td>
+<td>180000.0</td>
+<td>0.008281 s</td>
+</tr>
+</tbody>
+</table>
+<p>Los resultados muestran que el algoritmo B0 es consistentemente el menos eficiente, con un pico de casi mil millones de comparaciones y más de 96 segundos de ejecución en la consulta consultas-4-listas-posteo.json. En contraste, B1 y B2 se mantienen como las opciones más equilibradas, con pocas comparaciones (alrededor de 85,000 a 320,000) y tiempos bajos, siempre por debajo de 0.05 segundos.</p>
+<p>Binaria presenta un buen número de comparaciones, cercano a 176,000 en promedio, pero sus tiempos son ligeramente mayores que los de B1 y B2. Por su parte, SkipList destaca por su estabilidad: siempre tiene 180,000 comparaciones y logra los mejores tiempos, entre 0.006 y 0.008 segundos, lo que lo convierte en una opción muy eficiente y constante.</p>
+<p>El algoritmo B0 tuvo el peor rendimiento en todas las consultas. Su enfoque secuencial genera una enorme cantidad de comparaciones, ya que recorre toda la lista hasta encontrar la posición de inserción. No aprovecha el orden de los datos, lo que explica los tiempos altos y el crecimiento descontrolado en consultas con listas grandes o muy perturbadas.</p>
+<p>El algoritmo Binaria fue más eficiente que B0 en comparaciones, gracias a su capacidad de dividir el espacio de búsqueda. Sin embargo, sus tiempos fueron ligeramente más altos que los de B1 y B2. Esto se debe posiblemente a una mayor cantidad de operaciones internas, como el manejo de los índices y los saltos de control.</p>
+<p>Los algoritmos B1 y B2, variantes de búsqueda no acotada, lograron un equilibrio ideal entre comparaciones y tiempo. Su estrategia de expansión exponencial permite reducir rápidamente el intervalo de búsqueda sin recorrer toda la lista, lo que explica su excelente rendimiento en listas grandes o parcialmente ordenadas.</p>
+<p>El algoritmo SkipList mostró una gran regularidad: siempre hizo la misma cantidad de comparaciones y logró los tiempos más bajos. Esto se debe a su estructura multinivel que, aunque no ajusta dinámicamente su comportamiento, permite accesos rápidos similares a los de la búsqueda binaria, con una sobrecarga mínima.</p>
+<p>En general, cada algoritmo respondió según su diseño. Los que explotan el orden de los datos (Binaria, B1, B2, SkipList) fueron mucho más eficientes que B0. Esto confirma que la eficiencia no solo depende del tipo de algoritmo, sino también de su capacidad de adaptarse a la estructura de los datos.</p>
+</section>
+</section>
 </section>
 <section id="conclusiones" class="level2">
 <h2 class="anchored" data-anchor-id="conclusiones">4. Conclusiones</h2>
+<p>Una de las principales conclusiones del análisis es que el algoritmo B0, basado en búsqueda secuencial, resulta completamente ineficiente para conjuntos de datos ordenados, especialmente cuando se introducen perturbaciones. Su número de comparaciones crece desproporcionadamente y sus tiempos de ejecución son inaceptables incluso en consultas de tamaño moderado, lo que lo descarta como una opción viable en contextos prácticos donde se requiere rendimiento.</p>
+<p>Por otro lado, los algoritmos B1 y B2 demostraron ser las estrategias más equilibradas. No solo mantienen un número reducido de comparaciones en todos los escenarios, sino que además ofrecen tiempos de ejecución muy bajos y constantes, independientemente del tamaño o perturbación de las listas. Esta combinación de eficiencia y estabilidad los convierte en una excelente alternativa cuando se trabaja con datos parcialmente ordenados o de tamaño variable.</p>
+<p>La búsqueda binaria acotada, aunque conceptualmente eficiente, mostró tiempos de ejecución ligeramente mayores en comparación con B1 y B2. Esto sugiere que, aunque reduce el número de comparaciones, su implementación o la estructura de acceso a los datos podría estar introduciendo una sobrecarga adicional, lo cual debe ser considerado dependiendo del contexto de aplicación.</p>
+<p>SkipList se posiciona como una opción altamente competitiva. Aunque su número de comparaciones se mantiene fijo en 180,000, su gran ventaja radica en sus tiempos de ejecución, que son consistentemente los más bajos de todos los algoritmos evaluados. Esta característica lo convierte en una herramienta valiosa para escenarios en los que el tiempo de respuesta es crítico.</p>
+<p>Finalmente, este estudio confirma que la elección del algoritmo de búsqueda debe estar guiada por el tipo de datos, su orden relativo, y los requisitos de rendimiento. En ambientes dinámicos o con estructuras parcialmente ordenadas, es preferible optar por B1, B2 o SkipList. En cambio, algoritmos como B0 deben evitarse salvo en situaciones controladas con conjuntos pequeños y sin requisitos de eficiencia.</p>
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">5. Referencias</h2>
+<ul>
+<li>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2009). <em>Introduction to Algorithms</em> (3rd ed.).</li>
+<li>Sedgewick, R., &amp; Wayne, K. (2011). <em>Algorithms</em> (4th ed.).</li>
+<li>Knuth, D. E. (1998). <em>The Art of Computer Programming, Volume 3: Sorting and Searching</em> (2nd ed.).</li>
+<li>Weiss, M. A. (2014). <em>Data Structures and Algorithm Analysis in C</em> (3rd ed.). Pearson.</li>
+</ul>
 </section>
 <section id="cambios-realizados" class="level2">
 <h2 class="anchored" data-anchor-id="cambios-realizados">6. Cambios Realizados</h2>
+<p>En atención a la retroalimentación recibida, se realizó una revisión profunda del enfoque adoptado en la implementación de los algoritmos de búsqueda por comparación. A continuación se detallan los ajustes conceptuales y técnicos aplicados:</p>
+<ul>
+<li><p>Se reconoció que el uso de listas de posteo con perturbaciones generó una interpretación errónea del problema, llevando a implementar algoritmos basados únicamente en igualdad, cuando el problema central requería considerar comparaciones con operadores <code>&lt;</code> o <code>&lt;=</code> para determinar la posición de inserción.</p></li>
+<li><p>Se reformularon los algoritmos de búsqueda secuencial y binaria considerando adecuadamente la semántica del problema, que implica la ubicación correcta en listas ordenadas, no la coincidencia exacta.</p></li>
+<li><p>Se revisaron las notas del curso y el artículo de Baeza-Yates (B&amp;Y), lo que permitió entender con mayor claridad el modelo de comparación y sus implicaciones para el diseño e interpretación correcta de los algoritmos.</p></li>
+<li><p>Se corrigieron errores lógicos en las funciones de búsqueda y se realizaron pruebas con datos estructurados correctamente, evitando distorsiones generadas por entradas mal definidas.</p></li>
+</ul>
 
 
 </section>

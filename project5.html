@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -133,13 +168,44 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de Contenido</h2>
    
   <ul>
-  <li><a href="#proyecto-5" id="toc-proyecto-5" class="nav-link active" data-scroll-target="#proyecto-5">Proyecto 5</a></li>
-  <li><a href="#a." id="toc-a." class="nav-link" data-scroll-target="#a.">5A.</a>
+  <li><a href="#reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-intersección-de-conjuntos." id="toc-reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-intersección-de-conjuntos." class="nav-link active" data-scroll-target="#reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-intersección-de-conjuntos.">5 Reporte escrito. Experimentos y análisis de algoritmos de intersección de conjuntos.</a>
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">1. Introducción</a></li>
-  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a></li>
-  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a></li>
-  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">2. Desarrollo</a>
+  <ul>
+  <li><a href="#bibliotecas-y-carga-de-archivos" id="toc-bibliotecas-y-carga-de-archivos" class="nav-link" data-scroll-target="#bibliotecas-y-carga-de-archivos">2.1 Bibliotecas y Carga de Archivos</a></li>
+  <li><a href="#clase-para-contar-comparaciones" id="toc-clase-para-contar-comparaciones" class="nav-link" data-scroll-target="#clase-para-contar-comparaciones">2.2 Clase para contar comparaciones</a></li>
+  <li><a href="#algoritmos-de-búsqueda-instrumentados" id="toc-algoritmos-de-búsqueda-instrumentados" class="nav-link" data-scroll-target="#algoritmos-de-búsqueda-instrumentados">2.3 Algoritmos de búsqueda instrumentados</a></li>
+  <li><a href="#implementación-de-algoritmos-de-intersección" id="toc-implementación-de-algoritmos-de-intersección" class="nav-link" data-scroll-target="#implementación-de-algoritmos-de-intersección">2.4 Implementación de algoritmos de intersección</a></li>
+  <li><a href="#evaluación-de-algoritmos-en-los-datasets-a-b-y-c" id="toc-evaluación-de-algoritmos-en-los-datasets-a-b-y-c" class="nav-link" data-scroll-target="#evaluación-de-algoritmos-en-los-datasets-a-b-y-c">2.5 Evaluación de algoritmos en los datasets A, B y C</a></li>
+  <li><a href="#transformar-resultados-a-dataframe" id="toc-transformar-resultados-a-dataframe" class="nav-link" data-scroll-target="#transformar-resultados-a-dataframe">2.6 Transformar resultados a DataFrame</a></li>
+  <li><a href="#visualización-de-gráficos" id="toc-visualización-de-gráficos" class="nav-link" data-scroll-target="#visualización-de-gráficos">2.7 Visualización de gráficos</a></li>
+  <li><a href="#tabla-de-resultados-estadísticos" id="toc-tabla-de-resultados-estadísticos" class="nav-link" data-scroll-target="#tabla-de-resultados-estadísticos">2.8 Tabla de Resultados Estadísticos</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-resultados" id="toc-análisis-de-resultados" class="nav-link" data-scroll-target="#análisis-de-resultados">3. Análisis de Resultados</a>
+  <ul>
+  <li><a href="#tiempos-de-ejecución-por-algoritmo-y-conjuntos" id="toc-tiempos-de-ejecución-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#tiempos-de-ejecución-por-algoritmo-y-conjuntos">3.1 Tiempos de ejecución por Algoritmo y Conjuntos</a>
+  <ul class="collapse">
+  <li><a href="#gráfico-comparativo-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos" id="toc-gráfico-comparativo-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#gráfico-comparativo-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos">3.1.1 Gráfico comparativo de <strong>Tiempos</strong> de ejecución por Algoritmo y Conjuntos</a></li>
+  <li><a href="#tabla-comparativa-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos" id="toc-tabla-comparativa-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#tabla-comparativa-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos">3.1.2. Tabla comparativa de Tiempos de ejecución por Algoritmo y Conjuntos</a></li>
+  </ul></li>
+  <li><a href="#numero-de-comparaciones-por-algoritmo-y-conjuntos" id="toc-numero-de-comparaciones-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#numero-de-comparaciones-por-algoritmo-y-conjuntos">3.2 Numero de Comparaciones por Algoritmo y Conjuntos</a>
+  <ul class="collapse">
+  <li><a href="#gráfico-de-número-de-comaparaciones-por-algoritmo-y-conjuntos" id="toc-gráfico-de-número-de-comaparaciones-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#gráfico-de-número-de-comaparaciones-por-algoritmo-y-conjuntos">3.2.1 Gráfico de Número de <strong>Comaparaciones</strong> por Algoritmo y Conjuntos</a></li>
+  <li><a href="#tabla-de-numero-de-comparaciones-por-algoritmo-y-conjuntos" id="toc-tabla-de-numero-de-comparaciones-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#tabla-de-numero-de-comparaciones-por-algoritmo-y-conjuntos">3.2.2 Tabla de Numero de Comparaciones por Algoritmo y Conjuntos</a></li>
+  </ul></li>
+  <li><a href="#longitud-de-intersección-por-algoritmo-y-conjuntos" id="toc-longitud-de-intersección-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#longitud-de-intersección-por-algoritmo-y-conjuntos">3.3 Longitud de Intersección por Algoritmo y Conjuntos</a>
+  <ul class="collapse">
+  <li><a href="#gráfico-de-longitud-de-intersección-por-algoritmo-y-conjuntos" id="toc-gráfico-de-longitud-de-intersección-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#gráfico-de-longitud-de-intersección-por-algoritmo-y-conjuntos">3.3.1 Gráfico de <strong>Longitud de Intersección</strong> por Algoritmo y Conjuntos</a></li>
+  <li><a href="#tabla-comparativa-de-longitud-de-intersección-por-algoritmo-y-conjuntos" id="toc-tabla-comparativa-de-longitud-de-intersección-por-algoritmo-y-conjuntos" class="nav-link" data-scroll-target="#tabla-comparativa-de-longitud-de-intersección-por-algoritmo-y-conjuntos">3.3.2 Tabla comparativa de Longitud de Intersección por Algoritmo y Conjuntos</a></li>
+  </ul></li>
+  <li><a href="#datos-globales" id="toc-datos-globales" class="nav-link" data-scroll-target="#datos-globales">Datos Globales</a></li>
+  </ul></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a>
+  <ul>
+  <li><a href="#conclusiones-1" id="toc-conclusiones-1" class="nav-link" data-scroll-target="#conclusiones-1">4.1 Conclusiones</a></li>
+  <li><a href="#consideraciones" id="toc-consideraciones" class="nav-link" data-scroll-target="#consideraciones">4.2 Consideraciones</a></li>
+  </ul></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">5. Referencias</a></li>
   <li><a href="#cambios-realizados" id="toc-cambios-realizados" class="nav-link" data-scroll-target="#cambios-realizados">6. Cambios Realizados</a></li>
   </ul></li>
@@ -168,28 +234,899 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="proyecto-5" class="level1">
-<h1>Proyecto 5</h1>
-</section>
-<section id="a." class="level1">
-<h1>5A.</h1>
+<section id="reporte-escrito.-experimentos-y-análisis-de-algoritmos-de-intersección-de-conjuntos." class="level1">
+<h1>5 Reporte escrito. Experimentos y análisis de algoritmos de intersección de conjuntos.</h1>
 <section id="introducción" class="level2">
 <h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>El trabajo con grandes volúmenes de datos requiere encontrar formas eficientes de realizar operaciones básicas como la intersección de listas. Esta tarea, que consiste en identificar los elementos comunes entre varias listas ordenadas, resulta fundamental en sistemas como los motores de búsqueda, el filtrado de datos o el procesamiento de información en general. En este proyecto se propuso implementar y comparar varios algoritmos de intersección con el objetivo de analizar sus diferencias, ventajas y limitaciones en distintos escenarios.</p>
+<p>Los algoritmos seleccionados para este análisis fueron Melding (ME), Baeza-Yates (BY) y Barbay &amp; Kenyon (BK). Cada uno de ellos aborda el problema desde una estrategia distinta, lo que permite observar cómo se comportan las listas.</p>
+<p>El algoritmo Melding prioriza las listas más pequeñas para cruzarlas primero. Esta estrategia permite reducir el tamaño de las intersecciones parciales desde el inicio, acelerando el proceso cuando algunas listas tienen pocos elementos que filtran rápidamente el resultado (Barbay et al., 2009).</p>
+<p>El algoritmo Baeza-Yates parte de una lista base y busca sus elementos en las demás listas utilizando distintas técnicas. En este estudio se emplearon tres variantes: búsqueda binaria, búsqueda no acotada B1 (con saltos exponenciales y luego binaria) y la versión B2 (que mejora los saltos iniciales). Estas variantes permiten optimizar el número de comparaciones en función del tamaño relativo de las listas (Baeza-Yates, 2004).</p>
+<p>El algoritmo Barbay &amp; Kenyon presenta un enfoque más complejo y adaptativo. Alterna entre recorridos secuenciales y saltos controlados, decidiendo en tiempo real cuál estrategia aplicar según el patrón de los datos. Esta flexibilidad lo hace útil para listas con estructuras irregulares o alta dispersión de valores (Barbay &amp; Kenyon, 2002).</p>
+<p>Para evaluar el rendimiento de estos algoritmos, se trabajó con tres conjuntos de datos: el Conjunto A, con pares de listas; el Conjunto B, con tripletas; y el Conjunto C, con cuatro listas. En cada caso se midieron el tiempo de ejecución, el número de comparaciones realizadas y el tamaño de la intersección obtenida. Posteriormente, los resultados fueron representados mediante gráficos tipo boxplot, facilitando la comparación visual del rendimiento de cada algoritmo en distintos escenarios.</p>
 </section>
 <section id="desarrollo" class="level2">
 <h2 class="anchored" data-anchor-id="desarrollo">2. Desarrollo</h2>
+<section id="bibliotecas-y-carga-de-archivos" class="level3">
+<h3 class="anchored" data-anchor-id="bibliotecas-y-carga-de-archivos">2.1 Bibliotecas y Carga de Archivos</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bibliotecas Utilizadas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List, Tuple, Optional</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta de Archivos</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>base_path <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="dv">\A</span><span class="vs">ntonio Martínez</span><span class="dv">\D</span><span class="vs">ownloads</span><span class="er">\</span><span class="vs">Conjuntos de listas de posteo para intersección-20250520"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>file_map <span class="op">=</span> {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A'</span>: <span class="st">'postinglists-for-intersection-A-k=2.json'</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'B'</span>: <span class="st">'postinglists-for-intersection-B-k=3.json'</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'C'</span>: <span class="st">'postinglists-for-intersection-C-k=4.json'</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga y ordena listas dentro de cada grupo</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_json_data(path):</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> json.load(f)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>datasets <span class="op">=</span> {}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label, fname <span class="kw">in</span> file_map.items():</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    full_path <span class="op">=</span> os.path.join(base_path, fname)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> load_json_data(full_path)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    datasets[label] <span class="op">=</span> [[<span class="bu">sorted</span>(sublist) <span class="cf">for</span> sublist <span class="kw">in</span> group] <span class="cf">for</span> group <span class="kw">in</span> data]</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>dataset_a <span class="op">=</span> datasets[<span class="st">"A"</span>]</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>dataset_b <span class="op">=</span> datasets[<span class="st">"B"</span>]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dataset_c <span class="op">=</span> datasets[<span class="st">"C"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="clase-para-contar-comparaciones" class="level3">
+<h3 class="anchored" data-anchor-id="clase-para-contar-comparaciones">2.2 Clase para contar comparaciones</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clase para contar comparaciones</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ComparisonCounter:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> compare(<span class="va">self</span>, a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Compara dos valores y acumula el número de comparaciones."""</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="op">&lt;</span> b:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> reset(<span class="va">self</span>):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Reinicia el contador."""</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.count <span class="op">=</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="algoritmos-de-búsqueda-instrumentados" class="level3">
+<h3 class="anchored" data-anchor-id="algoritmos-de-búsqueda-instrumentados">2.3 Algoritmos de búsqueda instrumentados</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BÚSQUEDA BINARIA INSTRUMENTADA</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> instrumented_binary_search(arr, x, low<span class="op">=</span><span class="dv">0</span>, high<span class="op">=</span><span class="va">None</span>, counter<span class="op">=</span><span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Se requiere un ComparisonCounter."</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    high <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span> <span class="cf">if</span> high <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> high</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> low <span class="op">&lt;=</span> high:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        mid <span class="op">=</span> (low <span class="op">+</span> high) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">cmp</span> <span class="op">=</span> counter.compare(arr[mid], x)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">cmp</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> mid</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">cmp</span> <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            low <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            high <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># BÚSQUEDA EXPONENCIAL + BINARIA</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exponential_binary_search(arr, x, start<span class="op">=</span><span class="dv">0</span>, counter<span class="op">=</span><span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Se requiere un ComparisonCounter."</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    bound <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> start <span class="op">+</span> bound <span class="op">&lt;</span> n <span class="kw">and</span> counter.compare(arr[start <span class="op">+</span> bound], x) <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        bound <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    low <span class="op">=</span> start <span class="op">+</span> bound <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    high <span class="op">=</span> <span class="bu">min</span>(start <span class="op">+</span> bound, n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> instrumented_binary_search(arr, x, low, high, counter)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pos <span class="cf">if</span> pos <span class="op">&gt;=</span> <span class="dv">0</span> <span class="cf">else</span> high <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># BÚSQUEDA DOBLE EXPONENCIAL (B2)</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double_exponential_search(arr, x, start<span class="op">=</span><span class="dv">0</span>, counter<span class="op">=</span><span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Se requiere un ComparisonCounter."</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    exp <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> start <span class="op">+</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> exp) <span class="op">&lt;</span> n <span class="kw">and</span> counter.compare(arr[start <span class="op">+</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> exp)], x) <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        exp <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    outer_low <span class="op">=</span> start <span class="op">+</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> (exp <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    outer_high <span class="op">=</span> <span class="bu">min</span>(start <span class="op">+</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> exp), n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> exponential_binary_search(arr, x, outer_low, counter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="implementación-de-algoritmos-de-intersección" class="level3">
+<h3 class="anchored" data-anchor-id="implementación-de-algoritmos-de-intersección">2.4 Implementación de algoritmos de intersección</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MELDING (ME)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> melding_intersection(sets, counter<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> ComparisonCounter()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> sets:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [], counter.count</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sets) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> sets[<span class="dv">0</span>], counter.count</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    pointers <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(sets)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">all</span>(ptr <span class="op">&lt;</span> <span class="bu">len</span>(sets[i]) <span class="cf">for</span> i, ptr <span class="kw">in</span> <span class="bu">enumerate</span>(pointers)):</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        current_values <span class="op">=</span> [sets[i][ptr] <span class="cf">for</span> i, ptr <span class="kw">in</span> <span class="bu">enumerate</span>(pointers)]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        max_val <span class="op">=</span> <span class="bu">max</span>(current_values)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> val <span class="kw">in</span> current_values:</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            counter.compare(val, max_val)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">all</span>(counter.compare(val, max_val) <span class="op">==</span> <span class="dv">0</span> <span class="cf">for</span> val <span class="kw">in</span> current_values):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            result.append(max_val)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            pointers <span class="op">=</span> [ptr <span class="op">+</span> <span class="dv">1</span> <span class="cf">for</span> ptr <span class="kw">in</span> pointers]</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sets)):</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">while</span> pointers[i] <span class="op">&lt;</span> <span class="bu">len</span>(sets[i]) <span class="kw">and</span> counter.compare(sets[i][pointers[i]], max_val) <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                    pointers[i] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result, counter.count</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># BAEZA-YATES: BISECCIÓN</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> baeza_yates_bisection(sets, counter<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> ComparisonCounter()</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> sets:</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [], counter.count</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    sorted_sets <span class="op">=</span> <span class="bu">sorted</span>(sets, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> sorted_sets[<span class="dv">0</span>].copy()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> sorted_sets[<span class="dv">1</span>:]:</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> [e <span class="cf">for</span> e <span class="kw">in</span> result <span class="cf">if</span> instrumented_binary_search(s, e, <span class="dv">0</span>, <span class="va">None</span>, counter) <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> result:</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result, counter.count</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># BAEZA-YATES: BÚSQUEDA B1</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> baeza_yates_b1(sets, counter<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> ComparisonCounter()</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> sets:</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [], counter.count</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    sorted_sets <span class="op">=</span> <span class="bu">sorted</span>(sets, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    smallest <span class="op">=</span> sorted_sets[<span class="dv">0</span>]</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> e <span class="kw">in</span> smallest:</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">all</span>(exponential_binary_search(s, e, <span class="dv">0</span>, counter) <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">for</span> s <span class="kw">in</span> sorted_sets[<span class="dv">1</span>:]):</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>            result.append(e)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result, counter.count</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co"># BAEZA-YATES: BÚSQUEDA B2</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> baeza_yates_b2(sets, counter<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> counter <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> ComparisonCounter()</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> sets:</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [], counter.count</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    sorted_sets <span class="op">=</span> <span class="bu">sorted</span>(sets, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    smallest <span class="op">=</span> sorted_sets[<span class="dv">0</span>]</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    positions <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(sorted_sets)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> e <span class="kw">in</span> smallest:</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>        matched <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(sorted_sets)):</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>            s <span class="op">=</span> sorted_sets[i]</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>            pos <span class="op">=</span> double_exponential_search(s, e, positions[i], counter)</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> pos <span class="op">&gt;=</span> <span class="bu">len</span>(s) <span class="kw">or</span> counter.compare(s[pos], e) <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>                matched <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>            positions[i] <span class="op">=</span> pos</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> matched:</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>            result.append(e)</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result, counter.count</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="co"># BARBAY &amp; KENYON (BK)</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bk_intersection(lists, findpos<span class="op">=</span>exponential_binary_search):</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    counter <span class="op">=</span> ComparisonCounter()</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(lists)</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> <span class="bu">any</span>(<span class="kw">not</span> lst <span class="cf">for</span> lst <span class="kw">in</span> lists):</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [], <span class="dv">0</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    pointers <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    candidate <span class="op">=</span> lists[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>        match_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>            pos <span class="op">=</span> findpos(lists[i], candidate, pointers[i], counter)</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>            pointers[i] <span class="op">=</span> pos</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> pos <span class="op">&gt;=</span> <span class="bu">len</span>(lists[i]):</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> result, counter.count</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> lists[i][pos]</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> value <span class="op">==</span> candidate:</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>                match_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> match_count <span class="op">==</span> n:</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>                    result.append(candidate)</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>                    match_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>                pointers[i] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> pointers[i] <span class="op">&gt;=</span> <span class="bu">len</span>(lists[i]):</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> result, counter.count</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>                candidate <span class="op">=</span> lists[i][pointers[i]]</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>                match_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>                candidate <span class="op">=</span> value</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result, counter.count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="evaluación-de-algoritmos-en-los-datasets-a-b-y-c" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-de-algoritmos-en-los-datasets-a-b-y-c">2.5 Evaluación de algoritmos en los datasets A, B y C</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapa de algoritmos disponibles</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>algoritmos <span class="op">=</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ME'</span>: melding_intersection,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BY_bis'</span>: baeza_yates_bisection,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BY_B1'</span>: baeza_yates_b1,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BY_B2'</span>: baeza_yates_b2,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BK'</span>: bk_intersection,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutar un algoritmo sobre una lista de grupos</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ejecutar_algoritmo(algoritmo, grupos):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Ejecuta un algoritmo sobre múltiples grupos de listas ordenadas.</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna una lista de tuplas con:</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    (tiempo de ejecución, número de comparaciones, longitud de la intersección)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    resultados <span class="op">=</span> []</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> grupo <span class="kw">in</span> grupos:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        inicio <span class="op">=</span> time.time()</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        interseccion, comparaciones <span class="op">=</span> algoritmo(grupo)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        fin <span class="op">=</span> time.time()</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        resultados.append((fin <span class="op">-</span> inicio, comparaciones, <span class="bu">len</span>(interseccion)))</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultados</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluar todos los algoritmos sobre A, B y C</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_algorithms_on_datasets(dataset_a, dataset_b, dataset_c):</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">    Ejecuta cada algoritmo sobre los tres conjuntos (A, B y C)</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">    y almacena los resultados en un diccionario.</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    etiquetas <span class="op">=</span> {<span class="st">'A'</span>: dataset_a, <span class="st">'B'</span>: dataset_b, <span class="st">'C'</span>: dataset_c}</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    resultados <span class="op">=</span> {}</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> nombre, algoritmo <span class="kw">in</span> algoritmos.items():</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        resultados[nombre] <span class="op">=</span> {}</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> etiqueta, dataset <span class="kw">in</span> etiquetas.items():</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>            resultados[nombre][etiqueta] <span class="op">=</span> ejecutar_algoritmo(algoritmo, dataset)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultados</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="transformar-resultados-a-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="transformar-resultados-a-dataframe">2.6 Transformar resultados a DataFrame</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados a Dataframe</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resultados_a_dataframe(resultados):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Convierte el diccionario de resultados en un DataFrame tabular plano</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    con las columnas: algoritmo, conjunto, tiempo, comparaciones, long_inter.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    registros <span class="op">=</span> [</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"algoritmo"</span>: algoritmo,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"conjunto"</span>: conjunto,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"tiempo"</span>: tiempo,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"comparaciones"</span>: comparaciones,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"long_inter"</span>: longitud</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> algoritmo, por_conjunto <span class="kw">in</span> resultados.items()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> conjunto, ejecuciones <span class="kw">in</span> por_conjunto.items()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> tiempo, comparaciones, longitud <span class="kw">in</span> ejecuciones</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(registros)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualización-de-gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="visualización-de-gráficos">2.7 Visualización de gráficos</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar boxplot para una métrica específica</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_metric_boxplot(df, metric, title, ylabel):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    genera un boxplot por conjunto para una métrica específica.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"conjunto"</span>, y<span class="op">=</span>metric, hue<span class="op">=</span><span class="st">"algoritmo"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"conjunto"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(ylabel)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    plt.legend(title<span class="op">=</span><span class="st">"algoritmo"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecución de todo el flujo</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>resultados <span class="op">=</span> evaluate_algorithms_on_datasets(dataset_a, dataset_b, dataset_c)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> resultados_a_dataframe(resultados)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"resultados_1.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>display(df)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot: tiempo de ejecución</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plot_metric_boxplot(df, <span class="st">"tiempo"</span>, <span class="st">"Comparativa de Tiempos por Algoritmo y Conjunto"</span>, <span class="st">"Tiempo (s)"</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot: número de comparaciones </span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>plot_metric_boxplot(df, <span class="st">"comparaciones"</span>, <span class="st">"Número de Comparaciones por Algoritmo y Conjunto"</span>, <span class="st">"Comparaciones"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot: longitud de la intersección </span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>plot_metric_boxplot(df, <span class="st">"long_inter"</span>, <span class="st">"Longitud de Intersección por Algoritmo y Conjunto"</span>, <span class="st">"Tamaño de la Intersección"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tabla-de-resultados-estadísticos" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-de-resultados-estadísticos">2.8 Tabla de Resultados Estadísticos</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen estadístico agrupado por algoritmo y conjunto</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resumen_metricas(df):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Genera un resumen estadístico con media, desviación estándar, mínimo y máximo</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    para cada métrica agrupada por algoritmo y conjunto.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    resumen <span class="op">=</span> df.groupby([<span class="st">'algoritmo'</span>, <span class="st">'conjunto'</span>]).agg({</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'tiempo'</span>: [<span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>],</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'comparaciones'</span>: [<span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>],</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'long_inter'</span>: [<span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    }).<span class="bu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    resumen.columns <span class="op">=</span> [<span class="st">'_'</span>.join(col).strip() <span class="cf">for</span> col <span class="kw">in</span> resumen.columns.values]  <span class="co"># aplanar columnas</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    resumen <span class="op">=</span> resumen.reset_index()  <span class="co"># volver columnas los índices</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resumen</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar resumen estadístico</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> resumen_metricas(df)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar en consola</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Resumen estadístico de algoritmos de intersección por conjunto:"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>display(summary)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a CSV</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>summary.to_csv(<span class="st">"resumen_estadistico_algoritmos.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="análisis-de-resultados" class="level2">
 <h2 class="anchored" data-anchor-id="análisis-de-resultados">3. Análisis de Resultados</h2>
+<p>Los siguientes gráficos boxplot muestran de forma visual el comportamiento de cinco algoritmos de intersección aplicados sobre listas ordenadas: Melding (ME), Baeza-Yates con bisección (BY_bis), Baeza-Yates con búsqueda exponencial (BY_B1), Baeza-Yates con doble exponencial (BY_B2) y Barbay &amp; Kenyon (BK). La evaluación se hizo sobre tres conjuntos de prueba: A (pares de listas), B (tripletas) y C (tetrapletas). Cada gráfico representa una métrica clave: el tiempo de ejecución, que indica cuánto tarda cada algoritmo; el número de comparaciones, que refleja su complejidad operativa; y el tamaño de la intersección, que funciona como control para confirmar que todos los algoritmos están resolviendo el mismo problema. Estos resultados permiten visualizar claramente las diferencias de desempeño, así como identificar qué algoritmos son más consistentes y eficientes ante distintas estructuras de datos.</p>
+<p>Además del análisis gráfico, también se incluyó una comparación cuantitativa más detallada en forma de tablas. Estas presentan estadísticas descriptivas para las tres métricas clave: tiempos de ejecución (en segundos), número de comparaciones y tamaño de la intersección. Por cada combinación de algoritmo y conjunto, se reportan valores como la media, mediana, desviación estándar y los rangos de valores mínimos y máximos. Esta información complementa los gráficos al proporcionar una base numérica concreta que permite evaluar con mayor precisión el comportamiento de cada estrategia de intersección bajo diferentes condiciones de prueba.</p>
+<section id="tiempos-de-ejecución-por-algoritmo-y-conjuntos" class="level3">
+<h3 class="anchored" data-anchor-id="tiempos-de-ejecución-por-algoritmo-y-conjuntos">3.1 Tiempos de ejecución por Algoritmo y Conjuntos</h3>
+<section id="gráfico-comparativo-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos" class="level4">
+<h4 class="anchored" data-anchor-id="gráfico-comparativo-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos">3.1.1 Gráfico comparativo de <strong>Tiempos</strong> de ejecución por Algoritmo y Conjuntos</h4>
+<div style="text-align: center;">
+<p><img src="public/project5/01.jpeg" width="560px"></p>
+</div>
+<p>En este gráfico se pueden ver los tiempos de ejecución de los algoritmos en los conjuntos A, B y C. Lo que más resalta es que el algoritmo Melding (ME) tarda más que los demás en todos los conjuntos, y además tiene mucha variabilidad, con bastantes valores atípicos. Esto sugiere que su rendimiento no es muy estable. En cambio, el algoritmo de Barbay &amp; Kenyon (BK) es el más rápido y constante, sobre todo en los conjuntos A y C, donde sus tiempos están bien concentrados y cerca del mínimo. Las variantes de Baeza-Yates (BY_bis, BY_B1 y BY_B2) también tienen buenos tiempos, con poca dispersión. En particular, BY_bis y BK son los que se comportan mejor en cuanto a velocidad. En general, este gráfico me permite ver que ME es el más lento, mientras que BK y las versiones de Baeza-Yates son más eficientes y consistentes.</p>
+</section>
+<section id="tabla-comparativa-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-comparativa-de-tiempos-de-ejecución-por-algoritmo-y-conjuntos">3.1.2. Tabla comparativa de Tiempos de ejecución por Algoritmo y Conjuntos</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conjunto</th>
+<th>Algoritmo</th>
+<th>Media (s)</th>
+<th>SD</th>
+<th>Mediana (s)</th>
+<th>Mín (s)</th>
+<th>Máx (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>BK</td>
+<td>0.00035</td>
+<td>0.00030</td>
+<td>0.00028</td>
+<td>0.00005</td>
+<td>0.00337</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>BY_bis</td>
+<td>0.00067</td>
+<td>0.00015</td>
+<td>0.00064</td>
+<td>0.00050</td>
+<td>0.00217</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>BY_B1</td>
+<td>0.00118</td>
+<td>0.00034</td>
+<td>0.00112</td>
+<td>0.00087</td>
+<td>0.00481</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>BY_B2</td>
+<td>0.00126</td>
+<td>0.00044</td>
+<td>0.00118</td>
+<td>0.00061</td>
+<td>0.00446</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>ME</td>
+<td>0.00267</td>
+<td>0.00259</td>
+<td>0.00153</td>
+<td>0.00102</td>
+<td>0.01116</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BK</td>
+<td>0.00066</td>
+<td>0.00040</td>
+<td>0.00055</td>
+<td>0.00019</td>
+<td>0.00461</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>BY_bis</td>
+<td>0.00091</td>
+<td>0.00019</td>
+<td>0.00088</td>
+<td>0.00060</td>
+<td>0.00163</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BY_B2</td>
+<td>0.00134</td>
+<td>0.00033</td>
+<td>0.00125</td>
+<td>0.00088</td>
+<td>0.00288</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>BY_B1</td>
+<td>0.00146</td>
+<td>0.00037</td>
+<td>0.00137</td>
+<td>0.00100</td>
+<td>0.00294</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>ME</td>
+<td>0.00446</td>
+<td>0.00416</td>
+<td>0.00287</td>
+<td>0.00126</td>
+<td>0.01725</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BK</td>
+<td>0.00049</td>
+<td>0.00024</td>
+<td>0.00043</td>
+<td>0.00019</td>
+<td>0.00202</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>BY_B2</td>
+<td>0.00086</td>
+<td>0.00027</td>
+<td>0.00080</td>
+<td>0.00046</td>
+<td>0.00176</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BY_bis</td>
+<td>0.00087</td>
+<td>0.00018</td>
+<td>0.00084</td>
+<td>0.00060</td>
+<td>0.00144</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>BY_B1</td>
+<td>0.00110</td>
+<td>0.00035</td>
+<td>0.00104</td>
+<td>0.00074</td>
+<td>0.00269</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>ME</td>
+<td>0.00291</td>
+<td>0.00194</td>
+<td>0.00251</td>
+<td>0.00132</td>
+<td>0.01159</td>
+</tr>
+</tbody>
+</table>
+<p>Al analizar los tiempos de ejecución por algoritmo y conjunto, se ve claramente que el algoritmo Melding (ME) es el más lento en los tres casos. Por ejemplo, en el conjunto B, su tiempo promedio es de 0.00446 s, con una desviación estándar de 0.00416 s, lo que además muestra una gran variabilidad. Su tiempo máximo en ese conjunto alcanza los 0.01725 s, muy por encima del resto. Lo mismo ocurre en los conjuntos A y C, donde ME también tiene los valores más altos: 0.00267 s en A y 0.00291 s en C, confirmando que no es un algoritmo eficiente en términos de tiempo.</p>
+<p>En cambio, el algoritmo Barbay &amp; Kenyon (BK) destaca por ser el más rápido. En el conjunto A, su tiempo promedio es de apenas 0.00035 s, con un mínimo de 0.00005 s y un máximo de solo 0.00337 s. En el conjunto C, también tiene muy buen rendimiento, con una media de 0.00049 s. Este comportamiento muestra que BK no solo es rápido, sino también bastante constante.</p>
+<p>Las variantes de Baeza-Yates tienen un rendimiento intermedio. De ellas, BY_bis es la más rápida, con promedios de 0.00067 s en A, 0.00091 s en B y 0.00087 s en C, todos con baja desviación. Por otro lado, BY_B1 y BY_B2 son un poco más lentas (por ejemplo, BY_B1 en B tiene una media de 0.00146 s), pero siguen siendo más eficientes que ME.</p>
+</section>
+</section>
+<section id="numero-de-comparaciones-por-algoritmo-y-conjuntos" class="level3">
+<h3 class="anchored" data-anchor-id="numero-de-comparaciones-por-algoritmo-y-conjuntos">3.2 Numero de Comparaciones por Algoritmo y Conjuntos</h3>
+<section id="gráfico-de-número-de-comaparaciones-por-algoritmo-y-conjuntos" class="level4">
+<h4 class="anchored" data-anchor-id="gráfico-de-número-de-comaparaciones-por-algoritmo-y-conjuntos">3.2.1 Gráfico de Número de <strong>Comaparaciones</strong> por Algoritmo y Conjuntos</h4>
+<div style="text-align: center;">
+<p><img src="public/project5/02.jpeg" width="560px"></p>
+</div>
+<p>En este gráfico se muestran las diferencias en el número de comparaciones que realiza cada algoritmo al aplicarse sobre los conjuntos A, B y C. El algoritmo que más sobresale en este aspecto es Melding (ME), ya que en los tres conjuntos es el que hace más comparaciones, con valores que varían bastante y con presencia de muchos outliers. En el conjunto B, por ejemplo, algunos casos llegan a superar las 80,000 comparaciones, lo cual es muy alto comparado con los demás algoritmos. Además, la dispersión en ME es muy amplia, lo que indica que su comportamiento no es constante y que puede llegar a ser bastante ineficiente dependiendo del caso.</p>
+<p>Por otro lado, el algoritmo de Barbay &amp; Kenyon (BK) es el que hace menos comparaciones en general. En los tres conjuntos mantiene una distribución muy compacta y con valores bastante bajos, lo que refleja que es más eficiente y predecible. Las variantes de Baeza-Yates (BY_bis, BY_B1 y BY_B2) tienen un comportamiento intermedio. BY_bis es el que tiene menos comparaciones dentro de ese grupo, con valores bajos y poca variación. BY_B1 y BY_B2 hacen más comparaciones, pero aun así están lejos de alcanzar los niveles de ME.</p>
+</section>
+<section id="tabla-de-numero-de-comparaciones-por-algoritmo-y-conjuntos" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-de-numero-de-comparaciones-por-algoritmo-y-conjuntos">3.2.2 Tabla de Numero de Comparaciones por Algoritmo y Conjuntos</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Conjunto</th>
+<th>Algoritmo</th>
+<th>Media</th>
+<th>Mediana</th>
+<th>SD</th>
+<th>Mín</th>
+<th>Máx</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>BK</td>
+<td>493</td>
+<td>444</td>
+<td>191</td>
+<td>59</td>
+<td>1180</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>BY_bis</td>
+<td>1361</td>
+<td>1353</td>
+<td>165</td>
+<td>1068</td>
+<td>1865</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>BY_B2</td>
+<td>2411</td>
+<td>2367</td>
+<td>455</td>
+<td>1173</td>
+<td>3831</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>BY_B1</td>
+<td>2493</td>
+<td>2472</td>
+<td>324</td>
+<td>1926</td>
+<td>3422</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>ME</td>
+<td>9128</td>
+<td>4574</td>
+<td>10654</td>
+<td>3152</td>
+<td>42392</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BK</td>
+<td>1233</td>
+<td>1085</td>
+<td>405</td>
+<td>346</td>
+<td>2376</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>BY_bis</td>
+<td>2805</td>
+<td>2751</td>
+<td>241</td>
+<td>2222</td>
+<td>3384</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BY_B2</td>
+<td>4951</td>
+<td>4762</td>
+<td>662</td>
+<td>3223</td>
+<td>6582</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>BY_B1</td>
+<td>5374</td>
+<td>5161</td>
+<td>780</td>
+<td>3833</td>
+<td>7358</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>ME</td>
+<td>18321</td>
+<td>12888</td>
+<td>17246</td>
+<td>4417</td>
+<td>85447</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BK</td>
+<td>1602</td>
+<td>1493</td>
+<td>375</td>
+<td>840</td>
+<td>3017</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>BY_bis</td>
+<td>3808</td>
+<td>3691</td>
+<td>327</td>
+<td>3002</td>
+<td>4662</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BY_B2</td>
+<td>6520</td>
+<td>6324</td>
+<td>698</td>
+<td>4539</td>
+<td>8401</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>BY_B1</td>
+<td>7105</td>
+<td>6842</td>
+<td>870</td>
+<td>5114</td>
+<td>9369</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>ME</td>
+<td>21521</td>
+<td>14518</td>
+<td>16510</td>
+<td>5406</td>
+<td>56670</td>
+</tr>
+</tbody>
+</table>
+<p>Al observar los datos de la tabla, se nota claramente que el algoritmo Melding (ME) es el que más comparaciones realiza en todos los conjuntos. En el conjunto B, por ejemplo, tiene un promedio de 18,321 comparaciones, con una desviación estándar muy alta de 17,246, y casos extremos que alcanzan hasta 85,447. Esto refleja que ME no solo es el más costoso, sino también el más inestable. Lo mismo ocurre en los conjuntos A y C, donde sus promedios también son elevados: 9,128 en A y 21,521 en C. Además, las medianas están bastante por debajo de las medias, lo cual confirma que hay muchos valores atípicos que aumentan considerablemente el promedio.</p>
+<p>En contraste, Barbay &amp; Kenyon (BK) vuelve a destacar por ser el algoritmo más eficiente en cuanto al número de comparaciones. Sus promedios son bajos y consistentes: 493 en A, 1,233 en B y 1,602 en C, con valores mínimos que llegan hasta 59. La baja variabilidad que presenta lo convierte en una opción muy confiable. Las variantes de Baeza-Yates se encuentran en un término medio. BY_bis es la más liviana de ese grupo, con cifras razonables como 1,361 en A y 3,808 en C. Por su parte, BY_B1 y BY_B2 tienden a realizar más comparaciones, especialmente en los conjuntos más grandes, donde sus promedios superan los 5,000 y 6,000. Aun así, su comportamiento es más controlado comparado con el de ME. En general, esta tabla refuerza que ME es el algoritmo menos eficiente, BK el más favorable en cuanto a comparaciones, y las variantes de Baeza-Yates se mantienen dentro de rangos aceptables.</p>
+</section>
+</section>
+<section id="longitud-de-intersección-por-algoritmo-y-conjuntos" class="level3">
+<h3 class="anchored" data-anchor-id="longitud-de-intersección-por-algoritmo-y-conjuntos">3.3 Longitud de Intersección por Algoritmo y Conjuntos</h3>
+<section id="gráfico-de-longitud-de-intersección-por-algoritmo-y-conjuntos" class="level4">
+<h4 class="anchored" data-anchor-id="gráfico-de-longitud-de-intersección-por-algoritmo-y-conjuntos">3.3.1 Gráfico de <strong>Longitud de Intersección</strong> por Algoritmo y Conjuntos</h4>
+<div style="text-align: center;">
+<p><img src="public/project5/03.jpeg" width="560px"></p>
+</div>
+<p>En este gráfico se muestra la longitud de la intersección obtenida por cada algoritmo en los conjuntos A, B y C. Algo que me parece importante destacar es que todos los algoritmos están resolviendo correctamente el problema de intersección, ya que los resultados que obtienen tienen coherencia dentro de cada conjunto. Sin embargo, también se notan diferencias claras en la cantidad de elementos comunes que cada uno logra recuperar. Lo que más me llamó la atención es que el algoritmo BY_B1 se comporta de forma muy distinta al resto: sus intersecciones son considerablemente más largas, sobre todo en el conjunto B, donde la mediana supera los 180 elementos y hay casos que llegan cerca de 260. También en los conjuntos A y C se nota que obtiene valores más altos. Esto sugiere que su forma de búsqueda permite capturar más coincidencias, o que mantiene los candidatos por más tiempo antes de descartarlos.</p>
+<p>En contraste, el algoritmo BK es el que devuelve intersecciones mucho más pequeñas. En los tres conjuntos, sus medianas son muy bajas, en algunos casos prácticamente cero, y tiene muy poca dispersión. Esto lo hace ver como un algoritmo más restrictivo o agresivo a la hora de filtrar elementos. ME, BY_bis y BY_B2 tienen un comportamiento bastante parecido entre ellos: las longitudes de sus intersecciones son más moderadas, con una variabilidad controlada y sin tantos extremos. En general, este gráfico me ayuda a entender no solo que todos los algoritmos funcionan, sino también cómo varía el enfoque de cada uno en cuanto a qué tan amplia o limitada es la intersección que devuelve. Al final, esas diferencias pueden depender de la lógica interna del algoritmo, del orden en que recorren las listas o incluso de cómo manejan la condición de coincidencia entre elementos.</p>
+</section>
+<section id="tabla-comparativa-de-longitud-de-intersección-por-algoritmo-y-conjuntos" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-comparativa-de-longitud-de-intersección-por-algoritmo-y-conjuntos">3.3.2 Tabla comparativa de Longitud de Intersección por Algoritmo y Conjuntos</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Conjunto</th>
+<th>Algoritmo</th>
+<th>Promedio</th>
+<th>Mediana</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>BY_B1</td>
+<td>111.6</td>
+<td>111</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>BY_bis</td>
+<td>20.2</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>BY_B2</td>
+<td>20.1</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>ME</td>
+<td>19.6</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>BK</td>
+<td>2.8</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BY_B1</td>
+<td>189.7</td>
+<td>188</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>BY_bis</td>
+<td>25.0</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BY_B2</td>
+<td>25.1</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>ME</td>
+<td>23.6</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>BK</td>
+<td>3.4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BY_B1</td>
+<td>112.0</td>
+<td>111</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>BY_bis</td>
+<td>9.2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BY_B2</td>
+<td>7.7</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>ME</td>
+<td>7.8</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>BK</td>
+<td>0.18</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>En esta tabla se comparan las longitudes de intersección que obtiene cada algoritmo en los conjuntos A, B y C. Lo primero que noto es que BY_B1 es el que siempre genera intersecciones más grandes. En los tres conjuntos tiene los valores más altos tanto en promedio como en mediana. En el conjunto B, por ejemplo, su promedio es de 189.7, con una mediana de 188. También en A y C se mantiene por encima de los demás, con promedios de 111.6 y 112 respectivamente. Esto confirma que su estrategia de búsqueda logra encontrar más coincidencias entre las listas, lo que termina generando intersecciones mucho más largas.</p>
+<p>Por otro lado, el algoritmo BK es el que da los resultados más bajos. En el conjunto C, su promedio es de apenas 0.18 y la mediana es 0, lo que significa que en la mayoría de los casos ni siquiera encuentra elementos comunes. En los conjuntos A y B también se mantiene con valores muy bajos. En cambio, ME, BY_bis y BY_B2 tienen un comportamiento más equilibrado. En A, por ejemplo, sus promedios están muy parejos entre los 19 y 20 elementos, y algo similar pasa en los otros dos conjuntos. En general, esta tabla me deja claro que todos los algoritmos están resolviendo bien el problema, pero hay diferencias importantes en la cantidad de elementos que logran conservar en la intersección. Eso seguramente tiene que ver con cómo manejan los punteros y las condiciones de comparación dentro de cada estrategia.</p>
+</section>
+</section>
+<section id="datos-globales" class="level3">
+<h3 class="anchored" data-anchor-id="datos-globales">Datos Globales</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 16%">
+<col style="width: 17%">
+<col style="width: 16%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Algoritmo</th>
+<th>Tiempo</th>
+<th>Comparaciones</th>
+<th>Intersección</th>
+<th>Comentario</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>BK</strong></td>
+<td>Más rápido y constante</td>
+<td>Menos comparaciones</td>
+<td>Muy baja</td>
+<td>Extremadamente eficiente, pero muy restrictivo</td>
+</tr>
+<tr class="even">
+<td><strong>BY_bis</strong></td>
+<td>Rápido</td>
+<td>Bajo</td>
+<td>Moderada</td>
+<td>Buen balance entre eficiencia y recuperación</td>
+</tr>
+<tr class="odd">
+<td><strong>BY_B1</strong></td>
+<td>Más lento</td>
+<td>Más comparaciones</td>
+<td>Mayor intersección</td>
+<td>Captura más coincidencias, ideal para recuperar más datos</td>
+</tr>
+<tr class="even">
+<td><strong>BY_B2</strong></td>
+<td>Intermedio</td>
+<td>Medio</td>
+<td>Intermedia</td>
+<td>Buen compromiso entre B1 y bis</td>
+</tr>
+<tr class="odd">
+<td><strong>ME</strong></td>
+<td>Más lento e inestable</td>
+<td>Más comparaciones</td>
+<td>Moderada</td>
+<td>Poco eficiente, comportamiento muy variable</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="conclusiones" class="level2">
 <h2 class="anchored" data-anchor-id="conclusiones">4. Conclusiones</h2>
+<section id="conclusiones-1" class="level3">
+<h3 class="anchored" data-anchor-id="conclusiones-1">4.1 Conclusiones</h3>
+<p>Una de las conclusiones más claras que obtuve de este análisis es que el algoritmo Barbay &amp; Kenyon (BK) fue consistentemente el más eficiente en cuanto a tiempo de ejecución y número de comparaciones. En los tres conjuntos evaluados, sus resultados fueron los más bajos y estables, lo que indica que es una opción muy efectiva cuando se requiere rendimiento rápido y predecible. Esto lo convierte en una excelente alternativa para contextos donde la eficiencia computacional es prioritaria.</p>
+<p>En cuanto a las variantes de Baeza-Yates, pude observar que su comportamiento fue más equilibrado. BY_bis resultó ser bastante eficiente, con buenos tiempos y pocas comparaciones, mientras que BY_B1 se destacó por generar intersecciones mucho más largas. Esto me llevó a concluir que cada variante tiene su enfoque particular: algunas priorizan la rapidez y otras la exhaustividad en la coincidencia de elementos, lo cual puede ser útil dependiendo del tipo de aplicación.</p>
+<p>Por otro lado, el algoritmo Melding (ME) demostró ser el menos eficiente en todos los escenarios. No solo fue el más lento, sino también el que realizó más comparaciones y mostró una gran variabilidad en su comportamiento. En varios casos, sus valores máximos estuvieron muy por encima del resto, lo que deja claro que su desempeño no es confiable y que puede volverse extremadamente costoso en situaciones adversas.</p>
+<p>Otra observación importante es que la longitud de las intersecciones varía mucho entre algoritmos. Por ejemplo, BK tiende a devolver resultados muy pequeños o incluso vacíos, lo que sugiere que su criterio de coincidencia es muy restrictivo. En cambio, BY_B1 logra captar muchas más coincidencias, lo que podría deberse a su estrategia de búsqueda más flexible o tolerante. Esta diferencia me ayudó a entender mejor cómo cada algoritmo interpreta la condición de intersección.</p>
+<p>Todos los algoritmos evaluados lograron resolver correctamente el problema de intersección de listas ordenadas, pero quedó claro que no todos lo hacen de la misma manera ni con el mismo nivel de eficiencia. Cada uno adopta una estrategia distinta que impacta directamente en su rendimiento, ya sea en términos de tiempo de ejecución, número de comparaciones o tamaño de la intersección obtenida.</p>
+</section>
+<section id="consideraciones" class="level3">
+<h3 class="anchored" data-anchor-id="consideraciones">4.2 Consideraciones</h3>
+<p>Los resultados numéricos de este análisis me llevaron a reflexionar sobre la importancia de no basar la elección de un algoritmo únicamente en una métrica aislada. Es fundamental considerar el contexto y el propósito específico de la aplicación. Por ejemplo, algoritmos como BK se destacan por ser extremadamente rápidos y eficientes en términos computacionales, pero su forma de filtrar elementos tiende a ser muy estricta, lo que genera intersecciones considerablemente más pequeñas. Este comportamiento puede ser ventajoso en entornos donde la prioridad es la velocidad de respuesta, aunque implique sacrificar coincidencias potenciales.</p>
+<p>En contraste, variantes como BY_B1 realizan un mayor número de comparaciones, pero a cambio logran recuperar conjuntos más amplios de elementos comunes. Esto puede resultar esencial en tareas donde se privilegia la exhaustividad y la precisión por encima del costo computacional. Esta diferencia de enfoques evidencia que no existe un algoritmo universalmente óptimo; cada uno tiene fortalezas y limitaciones que deben ser cuidadosamente evaluadas en función de los objetivos concretos del sistema o aplicación en la que se pretende implementar.</p>
+</section>
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">5. Referencias</h2>
+<ul>
+<li><p>Baeza-Yates, R. (2004). A fast set intersection algorithm for sorted sequences. En S. C. Sahinalp, S. Muthukrishnan &amp; U. Dogrusoz (Eds.), <em>Combinatorial Pattern Matching</em> (pp.&nbsp;400–408). Springer. <a href="https://doi.org/10.1007/978-3-540-27801-6_30">https://doi.org/10.1007/978-3-540-27801-6_30</a></p></li>
+<li><p>Barbay, J., &amp; Kenyon, C. (2002). Adaptive intersection and t-threshold problems. <em>Proceedings of the Thirteenth Annual ACM-SIAM Symposium on Discrete Algorithms</em> (pp.&nbsp;390–399). Society for Industrial and Applied Mathematics. <a href="https://barbay.cl/Publications/2002-SODA-AdaptiveIntersectionAndTThresholdProblems-BarbayKenyon.pdf">https://barbay.cl/Publications/2002-SODA-AdaptiveIntersectionAndTThresholdProblems-BarbayKenyon.pdf</a></p></li>
+<li><p>Barbay, J., López-Ortiz, A., Lu, T., &amp; Salinger, A. (2009). An experimental investigation of set intersection algorithms for text searching. <em>ACM Journal of Experimental Algorithmics, 14</em>, Article 3.7. <a href="https://cs.uwaterloo.ca/~alopez-o/files/AEIoSIAfTS_2009.pdf">https://cs.uwaterloo.ca/~alopez-o/files/AEIoSIAfTS_2009.pdf</a></p></li>
+</ul>
 </section>
 <section id="cambios-realizados" class="level2">
 <h2 class="anchored" data-anchor-id="cambios-realizados">6. Cambios Realizados</h2>
+<p>Aun no se han realizado cambios. Se envió en fecha actual.</p>
 
 
 </section>
