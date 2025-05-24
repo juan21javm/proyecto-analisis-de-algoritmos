@@ -1,5 +1,5 @@
 git add .
-git commit -m "nombre del commit puede ser cualquier nombre"
+git commit -m "final terminado"
 git push
 
 quarto publish gh-pages
